@@ -10,4 +10,4 @@
 
 <h1>Descrição do Projeto</h1>
 
-Construção de uma empresa fictícia, afim de colocar em prática conhecimentos em linguagem JAVA e conjunto com SGBD Oracle, SQL e PL-SQL.
+Construção de uma empresa fictícia afim de colocar em prática conhecimentos adquiridos em linguagem JAVA em conjunto com SGBD Oracle, SQL e PL-SQL.
