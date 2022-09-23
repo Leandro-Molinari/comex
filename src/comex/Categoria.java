@@ -3,13 +3,13 @@ package comex;
 public class Categoria {
 	
 		
-		private int id;
+		private static int id = 1;
 		private String nome;
 		private StatusCategoria status = StatusCategoria.ATIVA;
 		
-		
+
 		public int getId() {
-			return id;
+			return id++;
 		}
 		public void setId(int id) {
 			this.id = id;
