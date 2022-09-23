@@ -2,12 +2,13 @@ package comex;
 
 public class Produto {
 	
-		private static int id = 1;
+		private static int contador = 1;
+		private int id;
 		private String nome;
 		private String descricao;
 		private double precoUnitario;
 		private int quantidadeEmEstoque;
-		private String categoria;
+		private Categoria categoria;
 		
 		
 		
@@ -21,8 +22,16 @@ public class Produto {
 			return imposto;
 		}
 		
+		public void contador() {
+			
+			id = contador;
+			contador ++;
+			
+		}
+		
+		
 		public int getId() {
-			return id++;
+			return id;
 		}
 		public void setId(int id) {
 			this.id = id;
@@ -51,12 +60,16 @@ public class Produto {
 		public void setQuantidadeEmEstoque(int quantidadeEmEstoque) {
 			this.quantidadeEmEstoque = quantidadeEmEstoque;
 		}
-		public String getCategoria() {
+		public Categoria getCategoria() {
 			return categoria;
 		}
-		public void setCategoria(String categoria) {
+		public void setCategoria(Categoria categoria) {
 			this.categoria = categoria;
 		}
+
+		
+
+		
 
 		
 		
