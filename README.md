@@ -12,21 +12,33 @@
 
 Construção de uma empresa fictícia afim de colocar em prática conhecimentos adquiridos em linguagem JAVA em conjunto com SGBD Oracle, SQL e PL-SQL.
 
-Semana 6 - Criação do Projeto / Branchs main e semana6
-  Tarefas finalizadas:
-    - ESSENCIAIS
-      - FINALIZADAS    
-        - Criação do Projeto;
-        - Criação das Classes Categoria e MainCategoria;
-        - Criação da Classe Produto;
-        - Criação da Classe ProdutoIsento e alterações na Classe Produto;
-    - OPCIONAIS
-        - FINALIZADAS
-          - Definição de ids.
-        - INICIADAS
-          - Classe Cliente.
-        - PENDENTES
-          - Classe Pedido;
-          - Classe Item de Pedido;
-          - Calculadora de valor total.
+SEMANA 6 - Criação do Projeto / Branches main e semana6
+<p>
+ESSENCIAIS</p>
+<ul>
+	- FINALIZADAS<br/>
+	<ul>
+		- Criação do Projeto;<br/>
+    - Criação das Classes Categoria e MainCategoria;<br/>
+    - Criação da Classe Produto;<br/>
+    - Criação da Classe ProdutoIsento e alterações na Classe Produto.</ul>
+</ul>
+OPCIONAIS<br/>
+ <ul>
+	- FINALIZADAS<br/>
+	<ul>
+		- Definição de ids.
+	</ul>
+	- INICIADAS<br/>
+	<ul>
+		- Classe Cliente.
+	</ul>
+	- PENDENTES<br/>
+	<ul>
+		- Classe Pedido;<br/>
+    - Classe Item de Pedido;<br/>
+		- Calculadora de valor total.
+	</ul>
+	</ul>
+
       
