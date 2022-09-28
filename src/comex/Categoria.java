@@ -6,10 +6,9 @@ public class Categoria {
 		private static int contador = 1;
 		private int id;
 		private String nome;
-		//private String nomeStatus;
 		private StatusCategoria status = StatusCategoria.ATIVA;
 		
-		public Categoria (int id, String nome, String nomeStatus) {
+		public Categoria (int id, String nome, StatusCategoria status) {
 			
 			if (id != contador) {
 				throw new IllegalArgumentException ("Id inválido ou duplicado! O PRÓXIMO Id DISPONÍVEL É '" + contador + "'");
@@ -19,25 +18,18 @@ public class Categoria {
 				throw new IllegalArgumentException ("Nome deve ter no minimo 4 caracteres");
 			}
 			
-			if(nomeStatus != "ATIVA" && nomeStatus != "INATIVA") {
-				throw new IllegalArgumentException("Categoria inválida, informar como ATIVA ou INATIVA (em maiúsculas");
-			}
-				
-			if(nomeStatus == "ATIVA") {
-					this.status = StatusCategoria.ATIVA;
-			}
+			 if(status == null) {
+	                throw new IllegalArgumentException("Categoria inválida, é obrigatória");
+			 }  
 			
-			if(nomeStatus == "INATIVA") {
-					this.status = StatusCategoria.INATIVA; 
-			}
-			
-			this.id = id;
+			 this.id = id;
 			this.nome = nome;
+			this.status = status;
 			contador ++; 
 		}
 		
 		
-		public Categoria (String nome, String nomeStatus) {
+		public Categoria (String nome, StatusCategoria status)  {
 			
 			//if (id != contador) {
 			//	throw new IllegalArgumentException ("Id inválido ou duplicado");
@@ -47,20 +39,10 @@ public class Categoria {
 				throw new IllegalArgumentException ("Nome deve ter no minimo 4 caracteres");
 			}
 			
-			if(nomeStatus != "ATIVA" && nomeStatus != "INATIVA") {
-				throw new IllegalArgumentException("Status Inválido");
-			}
-				
-			if(nomeStatus == "ATIVA") {
-					this.status = StatusCategoria.ATIVA;
-			}
-			
-			if(nomeStatus == "INATIVA") {
-					this.status = StatusCategoria.INATIVA; 
-			}
-			
+						
 			this.id = contador;
 			this.nome = nome;
+			this.status = status;
 			contador ++; 
 		}
 		

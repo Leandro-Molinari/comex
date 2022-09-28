@@ -2,7 +2,7 @@ package comex;
 
 public class Produto {
 	
-		private static int contador = 1;
+		protected static int contador = 1;
 		private int id;
 		private String nome;
 		private String descricao;
@@ -11,7 +11,65 @@ public class Produto {
 		private Categoria categoria;
 		
 		
+		public Produto (int id, String nome, String descricao, double precoUnitario, int quantidadeEmEstoque, Categoria categoria){
+			
+			if (id != contador) {
+				throw new IllegalArgumentException ("Id inválido, próximo número disponível: '" + contador + "'");
+			}
+			
+			if (nome.length() <= 5) {
+				throw new IllegalArgumentException ("Nome do produto deve ter no mínimo 6 caracteres");
+			}
+			
+			if (precoUnitario <= 0) {
+				throw new IllegalArgumentException ("Preço não pode ser menor ou igual a zero");
+			}
+			
+			if (quantidadeEmEstoque <= 0) {
+				throw new IllegalArgumentException ("Quantidade não pode estar zerada");
+			}
+			
+			if (categoria == null) {
+				throw new IllegalArgumentException ("Deve informar categoria");
+			}
+			
+			this.id=id;
+			this.nome=nome;
+			this.descricao = descricao;
+			this.precoUnitario=precoUnitario;
+			this.quantidadeEmEstoque=quantidadeEmEstoque;
+			this.categoria=categoria;
+			contador++;
+		}
 		
+public Produto (String nome, String descricao, double precoUnitario, int quantidadeEmEstoque, Categoria categoria){
+			
+			if (nome.length() <= 5) {
+				throw new IllegalArgumentException ("Nome do produto deve ter no mínimo 6 caracteres");
+			}
+			
+			if (precoUnitario <= 0) {
+				throw new IllegalArgumentException ("Preço não pode ser menor ou igual a zero");
+			}
+			
+			if (quantidadeEmEstoque <= 0) {
+				throw new IllegalArgumentException ("Quantidade não pode estar zerada");
+			}
+			
+			if (categoria == null) {
+				throw new IllegalArgumentException ("Deve informar categoria");
+			}
+			
+			this.id=contador;
+			this.nome=nome;
+			this.descricao = descricao;
+			this.precoUnitario=precoUnitario;
+			this.quantidadeEmEstoque=quantidadeEmEstoque;
+			this.categoria=categoria;
+			contador++;
+		}
+		
+
 		public double totalEstoque(double totalEstoque) {
 	       totalEstoque = this.precoUnitario * this.quantidadeEmEstoque;
 	    		   return totalEstoque;

@@ -4,11 +4,11 @@ public class MainCategoria {
 
 	public static void main(String[] args) {
 
-			Categoria categoria1 = new Categoria("Informática", "ATIVA");
+			Categoria categoria1 = new Categoria("Informática", StatusCategoria.ATIVA);
 	     			
-			Categoria categoria2 = new Categoria("Móveis", "INATIVA");
+			Categoria categoria2 = new Categoria("Móveis", StatusCategoria.INATIVA);
 					
-			Categoria categoria3 = new Categoria(3, "Livros", "ATIVA");
+			Categoria categoria3 = new Categoria("Livros", StatusCategoria.ATIVA);
 					
 			System.out.println("Categoria " + categoria1.getNome() + " (" 
 					+ categoria1.getId() + " - " + categoria1.getStatus() + ")");
