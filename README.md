@@ -27,37 +27,33 @@ OPCIONAIS<br/>
  <ul>
 	- FINALIZADAS<br/>
 	<ul>
-		- Definição de ids.
+		- Definição de ids.<br/>
+		- Classe Cliente.<br/>
+		- Classe Pedido;<br/>
 	</ul>
 	- INICIADAS<br/>
 	<ul>
-		- Classe Cliente.
+	- Classe Item de Pedido.<br/>
 	</ul>
 	- PENDENTES<br/>
 	<ul>
-		- Classe Pedido;<br/>
-    - Classe Item de Pedido;<br/>
-		- Calculadora de valor total.
+    	- Calculadora de valor total.
 	</ul>
 	</ul>
   <h4>SEMANA 7 - EXCEÇÕES E PROGRAMAÇÃO COM OBJECTS E STRINGS</h4>
 <p>
 <p>ESSENCIAIS</p>
-<ul>
+	<ul>
 	- FINALIZADAS<br/>
-	<ul>
+		<ul>
 		- Setup Inicial - Criação da branch semana 7 a partir da samana6.<br/>
-  </ul>
-	- INICIADAS<br/>
-	<ul>
-    - Validações ao criar uma Categoria.<br/>
-  </ul>
-	- PENDENTES<br/>
-	<ul>
-    - Validações ao criar um Produto ou ProdutoIsento;<br/>
-    - Adequando Pacotes.</ul>
-</ul>
-OPCIONAIS<br/>
+		- Validações ao criar uma Categoria.<br/>
+		- Validações ao criar um Produto ou ProdutoIsento;<br/>
+		- Adequando Pacotes.<br/>
+  	</ul>
+	</ul>
+<br/>	
+<p>OPCIONAIS<br/>
  <ul>
 	- FINALIZADAS<br/>
 	<ul>
