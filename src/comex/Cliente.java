@@ -2,7 +2,8 @@ package comex;
 
 public class Cliente {
 	
-	private static int id  = 1;
+	private static int contador = 1; 
+	private int id;
 	private String nome;
 	private String cpf;
 	private String telefone;
@@ -13,17 +14,25 @@ public class Cliente {
 	private String cidade;
 	private String estado;
 	
-	public Cliente (int id, String nome, String cpf, String telefone, String rua, String numero, String complemento,
+	public Cliente (String nome, String cpf, String telefone, String rua, String numero, String complemento,
 	 String bairro, String cidade, String estado) {
-		
-		id = id++;
-		
-		
+	
+		this.id = contador;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.telefone = telefone; 
+		this.rua = rua;
+		this.numero = numero;
+		this.complemento = complemento; 
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.estado = estado;
+		contador ++;
 	}
 	
 	
-	public static int getId() {
-		return id++;
+	public int getId() {
+		return id;
 	}
 	public String getNome() {
 		return nome;
