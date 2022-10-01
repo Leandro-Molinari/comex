@@ -57,16 +57,17 @@ OPCIONAIS<br/>
  <ul>
 	- FINALIZADAS<br/>
 	<ul>
-		- Validação ao criar um cliente.<br/> 
+		- Validação ao criar um cliente;<br/>
+		- Definindo a ComexException.<br/>
 	</ul>
 	- INICIADAS<br/>
 	<ul>
-		- Definindo a ComexException.<br/>
+		- .<br/>
 	</ul>
 	- PENDENTES<br/>
 	<ul>
 		- Definindo toString();<br/>
     		- Validações de padrões de texto;<br/>
-		    - Enumerados em Categoria e Cliente.
+		- Enumerados em Categoria e Cliente.<br/>
 	</ul>
 	</ul>
