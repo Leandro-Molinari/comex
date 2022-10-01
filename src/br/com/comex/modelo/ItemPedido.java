@@ -1,6 +1,6 @@
 package br.com.comex.modelo;
 
-
+//NÃO FINALIZADO
 
 public class ItemPedido {
 	

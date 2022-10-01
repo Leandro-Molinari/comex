@@ -1,7 +1,8 @@
 package br.com.comex.main;
 
-import br.com.comex.enums.StatusCategoria;
+
 import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.StatusCategoria;
 
 public class MainCategoria {
 

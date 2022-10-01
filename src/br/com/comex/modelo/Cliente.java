@@ -14,10 +14,76 @@ public class Cliente {
 	private String complemento;
 	private String bairro;
 	private String cidade;
-	private String estado;
+	private siglaEstado estado;
+	public enum siglaEstado {
+		
+		AC, AL, AP, AM, BA, CE, DF, 	ES, GO, MA, MT, MS, MG, PA, PB, PR, PE, 
+		PI, RJ, RN, RS, RO, RR, SC, SP, SE, TO; 		
+	} 
 	
+	
+	// Id
+	public Cliente (String nome, String cpf, String telefone, String rua, String numero, String complemento,
+			 String bairro, String cidade, siglaEstado estado) {
+				
+				if (estado == null) {
+					throw new IllegalArgumentException("Favor informar sigla do Estado");
+				}
+				
+							
+				if (nome.length() <= 5) {
+					new IllegalArgumentException("Nome deve ter mais que 5 letras");
+				}
+				
+				if (cpf.length() < 11 || cpf.length() > 14) {
+					new IllegalArgumentException("CPF inválido, deve ter entre 11 e 14 números");
+				}
+				
+				if(telefone != null) {
+					if(telefone.length() < 11 || telefone.length() > 16) {
+						new IllegalArgumentException("Telefone inválido, deve ter entre 11 e 16 caracteres");
+					}
+					} 
+				
+				if(rua.length() <= 5) {
+					throw new IllegalArgumentException("Nome da rua inválido, deve ter mais de 5 caracteres");
+				}
+				
+				if(numero.length() <= 1) {
+					throw new IllegalArgumentException("Informar número correto (Minimo 2 números ou S/N");
+				}
+				
+				if(bairro.length() <= 1) {
+					throw new IllegalArgumentException("Informar nome do bairro corretetamente");
+				}
+				
+				if(cidade.length() <= 1) {
+					throw new IllegalArgumentException("Nome da Cidade bairro corretetamente");
+				}
+				
+				this.id = contador;
+				this.nome = nome;
+				this.cpf = cpf;
+				this.telefone = telefone;
+				this.rua = rua;
+				this.numero = numero;
+				this.complemento = complemento;
+				this.bairro = bairro;
+				this.cidade = cidade;
+				this.estado = estado;
+				contador ++;
+			}
+		
+	
+	//todos
 	public Cliente (int id, String nome, String cpf, String telefone, String rua, String numero, String complemento,
-	 String bairro, String cidade, String estado) {
+	 String bairro, String cidade, siglaEstado estado) {
+		
+		if (nome == null || cpf == null || rua == null || numero == null || bairro == null || 
+				cidade == null || estado == null) {
+			
+			throw new IllegalArgumentException("Dados Incompletos");
+		}
 		
 		if (id != contador) {
 			throw new IllegalArgumentException("Id inválido, o próximo Id disponível é: " + contador);
@@ -31,9 +97,11 @@ public class Cliente {
 			new IllegalArgumentException("CPF inválido, deve ter entre 11 e 14 números");
 		}
 		
+		if(telefone != null) {
 		if(telefone.length() < 11 || telefone.length() > 16) {
 			new IllegalArgumentException("Telefone inválido, deve ter entre 11 e 16 caracteres");
 		}
+		} 
 		
 		if(rua.length() <= 5) {
 			throw new IllegalArgumentException("Nome da rua inválido, deve ter mais de 5 caracteres");
@@ -51,13 +119,44 @@ public class Cliente {
 			throw new IllegalArgumentException("Nome da Cidade bairro corretetamente");
 		}
 		
-		
-		
+		this.id = id;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.telefone = telefone;
+		this.rua = rua;
+		this.numero = numero;
+		this.complemento = complemento;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		//validaestado(estado);
+		this.estado = estado;
+		contador ++;
+	
+	
+	
+	
 	}
 	
 	
-	public static int getId() {
-		return id++;
+	public void validaestado(siglaEstado estado) {
+		
+		if (estado == null) {
+			throw new IllegalArgumentException("Favor informar sigla do Estado");
+		}
+			
+	}
+	
+	
+
+
+	
+	
+	
+	
+
+		
+	public int getId() {
+		return id;
 	}
 	public String getNome() {
 		return nome;
@@ -83,7 +182,7 @@ public class Cliente {
 	public String getCidade() {
 		return cidade;
 	}
-	public String getEstado() {
+	public siglaEstado getEstado() {
 		return estado;
 	}
 	
