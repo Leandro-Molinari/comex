@@ -16,23 +16,23 @@ public class Produto {
 		public Produto (int id, String nome, String descricao, double precoUnitario, int quantidadeEmEstoque, Categoria categoria){
 			
 			if (id != contador) {
-				throw new IllegalArgumentException ("Id inválido, próximo número disponível: '" + contador + "'");
+				throw new ComexException ("Id inválido, próximo número disponível: '" + contador + "'");
 			}
 			
 			if (nome.length() <= 5) {
-				throw new IllegalArgumentException ("Nome do produto deve ter no mínimo 6 caracteres");
+				throw new ComexException ("Nome do produto deve ter no mínimo 6 caracteres");
 			}
 			
 			if (precoUnitario <= 0) {
-				throw new IllegalArgumentException ("Preço não pode ser menor ou igual a zero");
+				throw new ComexException ("Preço não pode ser menor ou igual a zero");
 			}
 			
 			if (quantidadeEmEstoque <= 0) {
-				throw new IllegalArgumentException ("Quantidade não pode estar zerada");
+				throw new ComexException ("Quantidade não pode estar zerada");
 			}
 			
 			if (categoria == null) {
-				throw new IllegalArgumentException ("Deve informar categoria");
+				throw new ComexException ("Deve informar categoria");
 			}
 			
 			this.id=id;
@@ -47,19 +47,19 @@ public class Produto {
 public Produto (String nome, String descricao, double precoUnitario, int quantidadeEmEstoque, Categoria categoria){
 			
 			if (nome.length() <= 5) {
-				throw new IllegalArgumentException ("Nome do produto deve ter no mínimo 6 caracteres");
+				throw new ComexException ("Nome do produto deve ter no mínimo 6 caracteres");
 			}
 			
 			if (precoUnitario <= 0) {
-				throw new IllegalArgumentException ("Preço não pode ser menor ou igual a zero");
+				throw new ComexException ("Preço não pode ser menor ou igual a zero");
 			}
 			
 			if (quantidadeEmEstoque <= 0) {
-				throw new IllegalArgumentException ("Quantidade não pode estar zerada");
+				throw new ComexException ("Quantidade não pode estar zerada");
 			}
 			
 			if (categoria == null) {
-				throw new IllegalArgumentException ("Deve informar categoria");
+				throw new ComexException ("Deve informar categoria");
 			}
 			
 			this.id=contador;
@@ -93,44 +93,43 @@ public Produto (String nome, String descricao, double precoUnitario, int quantid
 		public int getId() {
 			return id;
 		}
-		public void setId(int id) {
-			this.id = id;
-		}
+
+		/*
+		 * public void setId(int id) { this.id = id; }
+		 */
 		public String getNome() {
 			return nome;
 		}
-		public void setNome(String nome) {
-			this.nome = nome;
-		}
+
+		/*
+		 * public void setNome(String nome) { this.nome = nome; }
+		 */
 		public String getDescricao() {
 			return descricao;
 		}
-		public void setDescricao(String descricao) {
-			this.descricao = descricao;
-		}
+
+		/*
+		 * public void setDescricao(String descricao) { this.descricao = descricao; }
+		 */
 		public double getPrecoUnitario() {
 			return precoUnitario;
-		}
-		public void setPrecoUnitario(double precoUnitario) {
-			this.precoUnitario = precoUnitario;
+			/*
+			 * } public void setPrecoUnitario(double precoUnitario) { this.precoUnitario =
+			 * precoUnitario;
+			 */
 		}
 		public int getQuantidadeEmEstoque() {
 			return quantidadeEmEstoque;
 		}
-		public void setQuantidadeEmEstoque(int quantidadeEmEstoque) {
-			this.quantidadeEmEstoque = quantidadeEmEstoque;
-		}
+
+		/*
+		 * public void setQuantidadeEmEstoque(int quantidadeEmEstoque) {
+		 * this.quantidadeEmEstoque = quantidadeEmEstoque; }
+		 */
 		public Categoria getCategoria() {
 			return categoria;
 		}
-		public void setCategoria(Categoria categoria) {
-			this.categoria = categoria;
-		}
-
-		
-
-		
-
-		
-		
+		/*
+		 * public void setCategoria(Categoria categoria) { this.categoria = categoria; }
+		 */
 }

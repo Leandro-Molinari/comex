@@ -13,15 +13,15 @@ public class Categoria {
 		public Categoria (int id, String nome, StatusCategoria status) {
 			
 			if (id != contador) {
-				throw new IllegalArgumentException ("Id inválido ou duplicado! O PRÓXIMO Id DISPONÍVEL É '" + contador + "'");
+				throw new ComexException ("Id inválido ou duplicado! O PRÓXIMO Id DISPONÍVEL É '" + contador + "'");
 			}
 
 			if (nome.length() <= 3) {
-				throw new IllegalArgumentException ("Nome deve ter no minimo 4 caracteres");
+				throw new ComexException ("Nome deve ter no minimo 4 caracteres");
 			}
 			
 			 if(status == null) {
-	                throw new IllegalArgumentException("Categoria inválida, é obrigatória");
+	                throw new ComexException("Categoria inválida, é obrigatória");
 			 }  
 			
 			 this.id = id;
@@ -38,7 +38,7 @@ public class Categoria {
 			//}
 
 			if (nome.length() <= 3) {
-				throw new IllegalArgumentException ("Nome deve ter no minimo 4 caracteres");
+				throw new ComexException ("Nome deve ter no minimo 4 caracteres");
 			}
 			
 						

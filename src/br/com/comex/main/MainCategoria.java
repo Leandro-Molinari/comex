@@ -8,7 +8,7 @@ public class MainCategoria {
 
 	public static void main(String[] args) {
 
-			Categoria categoria1 = new Categoria("Informática", StatusCategoria.ATIVA);
+			Categoria categoria1 = new Categoria("In", StatusCategoria.ATIVA);
 	     			
 			Categoria categoria2 = new Categoria("Móveis", StatusCategoria.INATIVA);
 					

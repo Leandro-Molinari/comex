@@ -1,6 +1,5 @@
 package br.com.comex.main;
 
-
 import br.com.comex.modelo.Categoria;
 import br.com.comex.modelo.Produto;
 import br.com.comex.modelo.ProdutoIsento;
@@ -31,7 +30,7 @@ public static void main(String[] args) {
 	
 	System.out.println("    |        " + produto2.getId() + "          | " + produto2.getNome() + "  | " 
 			+ produto2.getDescricao() + "  |    " + produto2.getPrecoUnitario() + "  |              " + produto2.imposto(0) + "       |        "
-			+ produto2.getQuantidadeEmEstoque() + "        |      " + produto2.totalEstoque(0) +"    |     " + produto2.getCategoria().getNome() + "     | " );
+			+ produto2.getQuantidadeEmEstoque() + "        |      " + produto2.totalEstoque(0) +"    |     " + produto2.getCategoria().getNome() + "   | " );
 	
 	System.out.println("    |        " + produto3.getId() + "          |   " + produto3.getNome() + "   |            " 
 			+ produto3.getDescricao() + "            |  " + produto3.getPrecoUnitario() + "  |           " + produto3.imposto(0) + "       |        "+ 

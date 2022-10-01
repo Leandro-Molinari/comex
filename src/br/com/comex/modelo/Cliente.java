@@ -27,38 +27,38 @@ public class Cliente {
 			 String bairro, String cidade, siglaEstado estado) {
 				
 				if (estado == null) {
-					throw new IllegalArgumentException("Favor informar sigla do Estado");
+					throw new ComexException("Favor informar sigla do Estado");
 				}
 				
 							
 				if (nome.length() <= 5) {
-					new IllegalArgumentException("Nome deve ter mais que 5 letras");
+					new ComexException("Nome deve ter mais que 5 letras");
 				}
 				
 				if (cpf.length() < 11 || cpf.length() > 14) {
-					new IllegalArgumentException("CPF inválido, deve ter entre 11 e 14 números");
+					new ComexException("CPF inválido, deve ter entre 11 e 14 números");
 				}
 				
 				if(telefone != null) {
 					if(telefone.length() < 11 || telefone.length() > 16) {
-						new IllegalArgumentException("Telefone inválido, deve ter entre 11 e 16 caracteres");
+						new ComexException("Telefone inválido, deve ter entre 11 e 16 caracteres");
 					}
 					} 
 				
 				if(rua.length() <= 5) {
-					throw new IllegalArgumentException("Nome da rua inválido, deve ter mais de 5 caracteres");
+					throw new ComexException("Nome da rua inválido, deve ter mais de 5 caracteres");
 				}
 				
 				if(numero.length() <= 1) {
-					throw new IllegalArgumentException("Informar número correto (Minimo 2 números ou S/N");
+					throw new ComexException("Informar número correto (Minimo 2 números ou S/N");
 				}
 				
 				if(bairro.length() <= 1) {
-					throw new IllegalArgumentException("Informar nome do bairro corretetamente");
+					throw new ComexException("Informar nome do bairro corretetamente");
 				}
 				
 				if(cidade.length() <= 1) {
-					throw new IllegalArgumentException("Nome da Cidade bairro corretetamente");
+					throw new ComexException("Nome da Cidade bairro corretetamente");
 				}
 				
 				this.id = contador;
@@ -82,41 +82,41 @@ public class Cliente {
 		if (nome == null || cpf == null || rua == null || numero == null || bairro == null || 
 				cidade == null || estado == null) {
 			
-			throw new IllegalArgumentException("Dados Incompletos");
+			throw new ComexException("Dados Incompletos");
 		}
 		
 		if (id != contador) {
-			throw new IllegalArgumentException("Id inválido, o próximo Id disponível é: " + contador);
+			throw new ComexException("Id inválido, o próximo Id disponível é: " + contador);
 		}
 		
 		if (nome.length() <= 5) {
-			new IllegalArgumentException("Nome deve ter mais que 5 letras");
+			new ComexException("Nome deve ter mais que 5 letras");
 		}
 		
 		if (cpf.length() < 11 || cpf.length() > 14) {
-			new IllegalArgumentException("CPF inválido, deve ter entre 11 e 14 números");
+			new ComexException("CPF inválido, deve ter entre 11 e 14 números");
 		}
 		
 		if(telefone != null) {
 		if(telefone.length() < 11 || telefone.length() > 16) {
-			new IllegalArgumentException("Telefone inválido, deve ter entre 11 e 16 caracteres");
+			new ComexException("Telefone inválido, deve ter entre 11 e 16 caracteres");
 		}
 		} 
 		
 		if(rua.length() <= 5) {
-			throw new IllegalArgumentException("Nome da rua inválido, deve ter mais de 5 caracteres");
+			throw new ComexException("Nome da rua inválido, deve ter mais de 5 caracteres");
 		}
 		
 		if(numero.length() <= 1) {
-			throw new IllegalArgumentException("Informar número correto (Minimo 2 números ou S/N");
+			throw new ComexException("Informar número correto (Minimo 2 números ou S/N");
 		}
 		
 		if(bairro.length() <= 1) {
-			throw new IllegalArgumentException("Informar nome do bairro corretetamente");
+			throw new ComexException("Informar nome do bairro corretetamente");
 		}
 		
 		if(cidade.length() <= 1) {
-			throw new IllegalArgumentException("Nome da Cidade bairro corretetamente");
+			throw new ComexException("Nome da Cidade bairro corretetamente");
 		}
 		
 		this.id = id;
@@ -141,7 +141,7 @@ public class Cliente {
 	public void validaestado(siglaEstado estado) {
 		
 		if (estado == null) {
-			throw new IllegalArgumentException("Favor informar sigla do Estado");
+			throw new ComexException("Favor informar sigla do Estado");
 		}
 			
 	}
