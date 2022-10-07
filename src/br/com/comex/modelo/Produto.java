@@ -113,10 +113,10 @@ public Produto (String nome, String descricao, double precoUnitario, int quantid
 		 */
 		public double getPrecoUnitario() {
 			return precoUnitario;
-			/*
-			 * } public void setPrecoUnitario(double precoUnitario) { this.precoUnitario =
-			 * precoUnitario;
-			 */
+			
+			 } public double setPrecoUnitario(double precoUnitario) { 
+				 return this.precoUnitario = precoUnitario;
+			 
 		}
 		public int getQuantidadeEmEstoque() {
 			return quantidadeEmEstoque;
