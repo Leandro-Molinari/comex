@@ -13,11 +13,11 @@ public class MainInsercaoCategoria{
 
 	public static void main(String[] args) throws SQLException {
 		
-		new Categoria("Informática", StatusCategoria.ATIVA);
-			
-		new Categoria("Móveis", StatusCategoria.INATIVA);
-				
-		new Categoria("Livros", StatusCategoria.ATIVA);
+//		new Categoria("Informática", StatusCategoria.ATIVA);
+//			
+//		new Categoria("Móveis", StatusCategoria.INATIVA);
+//				
+//		new Categoria("Livros", StatusCategoria.ATIVA);
 
 		ConnectionFactory connectionFactory= new ConnectionFactory();
 		try(Connection connection = connectionFactory.recuperaConexao()){
@@ -28,14 +28,14 @@ public class MainInsercaoCategoria{
 			
 			try(PreparedStatement statement = connection.prepareStatement
 																	("INSERT INTO comex.categoria (nome, status) VALUES (?, ?)", retornaColuna)) {
-				//System.out.print("Os Ids criados foram:");
+				
 				adicionaVariavel(new Categoria("INFORMÁTICA", StatusCategoria.ATIVA), statement);
-				//System.out.print(",");
+				
 				adicionaVariavel(new Categoria("MÓVEIS", StatusCategoria.INATIVA), statement);
-				//System.out.print(" e");
+				
 				adicionaVariavel(new Categoria("LIVROS", StatusCategoria.ATIVA), statement);
-				//System.out.print(".");
-				//System.out.println("");
+				
+				
 				System.out.println();
 				System.out.println("Dados inseridos com sucesso, conexão encerrada.");
 				connection.commit();
