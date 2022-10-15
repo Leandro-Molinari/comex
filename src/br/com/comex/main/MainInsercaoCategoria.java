@@ -13,12 +13,6 @@ public class MainInsercaoCategoria{
 
 	public static void main(String[] args) throws SQLException {
 		
-//		new Categoria("Informática", StatusCategoria.ATIVA);
-//			
-//		new Categoria("Móveis", StatusCategoria.INATIVA);
-//				
-//		new Categoria("Livros", StatusCategoria.ATIVA);
-
 		ConnectionFactory connectionFactory= new ConnectionFactory();
 		try(Connection connection = connectionFactory.recuperaConexao()){
 			
@@ -30,31 +24,20 @@ public class MainInsercaoCategoria{
 																	("INSERT INTO comex.categoria (nome, status) VALUES (?, ?)", retornaColuna)) {
 				
 				adicionaVariavel(new Categoria("INFORMÁTICA", StatusCategoria.ATIVA), statement);
-				
 				adicionaVariavel(new Categoria("MÓVEIS", StatusCategoria.INATIVA), statement);
-				
 				adicionaVariavel(new Categoria("LIVROS", StatusCategoria.ATIVA), statement);
-				
 				
 				System.out.println();
 				System.out.println("Dados inseridos com sucesso, conexão encerrada.");
 				connection.commit();
 			}
-			
 			catch (Exception e) {
 	            e.printStackTrace();
 	            System.out.println("Rollback executado");
 	            connection.rollback();
-	        	
 	         }
-			
 		}
-		
 	}
-	 
-	
-
-	  
 	private static void adicionaVariavel(Categoria categoria, PreparedStatement statement) throws SQLException {
 		statement.setString(1, categoria.getNome());
 		statement.setString(2, categoria.getStatus().name());
@@ -66,8 +49,5 @@ public class MainInsercaoCategoria{
 			System.out.print(" " + result.getLong(1) + " ");
 			
 		}
-	
 	}
-
-
 }

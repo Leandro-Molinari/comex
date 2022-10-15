@@ -14,7 +14,8 @@ public class Cliente {
 	private String complemento;
 	private String bairro;
 	private String cidade;
-	private siglaEstado estado;
+	private siglaEstado uf;
+	
 	public enum siglaEstado {
 		
 		AC, AL, AP, AM, BA, CE, DF, 	ES, GO, MA, MT, MS, MG, PA, PB, PR, PE, 
@@ -24,9 +25,9 @@ public class Cliente {
 	
 	// Id
 	public Cliente (String nome, String cpf, String telefone, String rua, String numero, String complemento,
-			 String bairro, String cidade, siglaEstado estado) {
+			 String bairro, String cidade, siglaEstado uf) {
 				
-				if (estado == null) {
+				if (uf == null) {
 					throw new ComexException("Favor informar sigla do Estado");
 				}
 				
@@ -70,17 +71,17 @@ public class Cliente {
 				this.complemento = complemento;
 				this.bairro = bairro;
 				this.cidade = cidade;
-				this.estado = estado;
+				this.uf = uf;
 				contador ++;
 			}
 		
 	
 	//todos
 	public Cliente (int id, String nome, String cpf, String telefone, String rua, String numero, String complemento,
-	 String bairro, String cidade, siglaEstado estado) {
+	 String bairro, String cidade, siglaEstado uf) {
 		
 		if (nome == null || cpf == null || rua == null || numero == null || bairro == null || 
-				cidade == null || estado == null) {
+				cidade == null || uf == null) {
 			
 			throw new ComexException("Dados Incompletos");
 		}
@@ -129,7 +130,7 @@ public class Cliente {
 		this.bairro = bairro;
 		this.cidade = cidade;
 		//validaestado(estado);
-		this.estado = estado;
+		this.uf = uf;
 		contador ++;
 	
 	
@@ -138,9 +139,9 @@ public class Cliente {
 	}
 	
 	
-	public void validaestado(siglaEstado estado) {
+	public void validaestado(siglaEstado uf) {
 		
-		if (estado == null) {
+		if (uf == null) {
 			throw new ComexException("Favor informar sigla do Estado");
 		}
 			
@@ -182,10 +183,12 @@ public class Cliente {
 	public String getCidade() {
 		return cidade;
 	}
-	public siglaEstado getEstado() {
-		return estado;
+	public siglaEstado getUf() {
+		return uf;
 	}
-	
+	public void setUf(siglaEstado uf) {
+		this.uf = uf;
+	}
 	
 	
 	

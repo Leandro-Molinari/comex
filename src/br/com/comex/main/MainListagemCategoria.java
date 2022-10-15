@@ -6,15 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import br.com.comex.modelo.ConnectionFactory;
-//import java.util.List;
 
 public class MainListagemCategoria {
 
 
 	public static void main(String[] args) throws SQLException {
 		
-	//	Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "System", "brx");
-	
 		ConnectionFactory connectionFactory= new ConnectionFactory();
 		Connection connection = connectionFactory.recuperaConexao();
 		
