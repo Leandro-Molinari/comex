@@ -1,7 +1,5 @@
 package br.com.comex.modelo;
 
-
-
 public class Produto {
 	
 		protected static int contador = 1;
@@ -11,10 +9,14 @@ public class Produto {
 		private double preco_Unitario;
 		private int quantidade_Estoque;
 		private int categoria_id;
-		private String tipo;
+		private tipo tipo;
 		
+		public enum tipo {
+			
+			ISENTO, NAO_ISENTO; 		
+		}
 		
-		public Produto (int id, String nome, String descricao, double preco_Unitario, int quantidade_Estoque, int categoria_id, String tipo){
+		public Produto (int id, String nome, String descricao, double preco_Unitario, int quantidade_Estoque, int categoria_id, tipo tipo){
 			
 			if (id != contador) {
 				throw new ComexException ("Id inválido, próximo número disponível: '" + contador + "'");
@@ -46,7 +48,7 @@ public class Produto {
 			contador++;
 		}
 		
-public Produto (String nome, String descricao, double preco_Unitario, int quantidade_Estoque, int categoria_id, String tipo){
+public Produto (String nome, String descricao, double preco_Unitario, int quantidade_Estoque, int categoria_id, tipo tipo){
 			
 			if (nome.length() <= 5) {
 				throw new ComexException ("Nome do produto deve ter no mínimo 6 caracteres");
@@ -111,8 +113,8 @@ public Produto (String nome, String descricao, double preco_Unitario, int quanti
 		public double getPreco_Unitario() {
 			return preco_Unitario;
 			
-//			 } public double setPreco_Unitario(double preco_Unitario) { 
-//				 return this.preco_Unitario = preco_Unitario;
+			 } public double setPreco_Unitario(double preco_Unitario) { 
+				 return this.preco_Unitario = preco_Unitario;
 			 
 		}
 		public int getQuantidade_Estoque() {
@@ -123,9 +125,13 @@ public Produto (String nome, String descricao, double preco_Unitario, int quanti
 		public int getCategoria_id() {
 			return categoria_id;
 		}
-		
 
-		public String getTipo() {
+		public tipo setTipo(tipo tipo) {
+			return this.tipo = tipo;
+			
+		}
+
+		public tipo getTipo() {
 			return tipo;
 		}
 

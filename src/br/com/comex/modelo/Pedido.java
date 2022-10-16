@@ -7,22 +7,29 @@ public class Pedido {
 	private String data;
 	private Cliente cliente;
 
-public Pedido (String data, Cliente cliente) {
+		public Pedido (String data, Cliente cliente) {
 	
-	this.id = contador;
-	this.data = data;
-	this.cliente = cliente;
-	contador++;
-}
+			this.id = contador;
+			this.data = data;
+			this.cliente = cliente;
+			contador++;
+		}
 
-public int getId() {
-	return id;
-}
-public String getData() {
-	return data;
-}
-public Cliente getCliente() {
-	return cliente;
-}
+	
 
+		public int getId() {
+			return id;
+		}
+		
+		public String getData() {
+			return data;
+		}
+		
+		public Cliente getCliente() {
+			return cliente;
+		}
+
+	
+		
+		
 }

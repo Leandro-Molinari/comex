@@ -21,8 +21,7 @@ public class Cliente {
 		AC, AL, AP, AM, BA, CE, DF, 	ES, GO, MA, MT, MS, MG, PA, PB, PR, PE, 
 		PI, RJ, RN, RS, RO, RR, SC, SP, SE, TO; 		
 	} 
-	
-	
+		
 	// Id
 	public Cliente (String nome, String cpf, String telefone, String rua, String numero, String complemento,
 			 String bairro, String cidade, siglaEstado uf) {
@@ -74,8 +73,7 @@ public class Cliente {
 				this.uf = uf;
 				contador ++;
 			}
-		
-	
+			
 	//todos
 	public Cliente (int id, String nome, String cpf, String telefone, String rua, String numero, String complemento,
 	 String bairro, String cidade, siglaEstado uf) {
@@ -129,35 +127,28 @@ public class Cliente {
 		this.complemento = complemento;
 		this.bairro = bairro;
 		this.cidade = cidade;
-		//validaestado(estado);
 		this.uf = uf;
 		contador ++;
-	
-	
-	
-	
 	}
 	
+	public Cliente (int id) {
+		this.id = id;
+	}
 	
 	public void validaestado(siglaEstado uf) {
-		
-		if (uf == null) {
+			if (uf == null) {
 			throw new ComexException("Favor informar sigla do Estado");
 		}
 			
 	}
 	
-	
-
-
-	
-	
-	
-	
-
-		
 	public int getId() {
 		return id;
+	}
+	
+	public String setNome() {
+		return this.nome;
+		
 	}
 	public String getNome() {
 		return nome;
@@ -189,6 +180,15 @@ public class Cliente {
 	public void setUf(siglaEstado uf) {
 		this.uf = uf;
 	}
+
+	@Override
+	public String toString() {
+		return "Cliente [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone + ", rua=" + rua
+				+ ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro + ", cidade=" + cidade
+				+ ", uf=" + uf + "]";
+	}
+
+	
 	
 	
 	

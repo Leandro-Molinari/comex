@@ -13,8 +13,8 @@ public class MainAtualizacaoCategoria {
 		try(Connection connection = connectionFactory.recuperaConexao()){
 		
 			
-			try(PreparedStatement statement = connection.prepareStatement("UPDATE comex.categoria SET nome = "
-				+ "'LIVROS TÉCNICOS' WHERE nome = 'LIVROS'")){
+			try(PreparedStatement statement = connection.prepareStatement("UPDATE comex.pedido SET data = "
+				+ "'29/09/2022' WHERE id = '8'")){
 		
 				statement.execute();
 		
