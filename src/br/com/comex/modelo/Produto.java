@@ -16,6 +16,10 @@ public class Produto {
 			ISENTO, NAO_ISENTO; 		
 		}
 		
+		public Produto (int id) {
+			this.id = id; 
+		}
+		
 		public Produto (int id, String nome, String descricao, double preco_Unitario, int quantidade_Estoque, int categoria_id, tipo tipo){
 			
 			if (id != contador) {

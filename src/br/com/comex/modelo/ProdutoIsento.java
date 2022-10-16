@@ -1,14 +1,14 @@
-package br.com.comex.modelo;
-
-
-
+//package br.com.comex.modelo;
+//
+//
+//
 //public class ProdutoIsento extends Produto {}
-	
+//	
 //
 //	
-////	public ProdutoIsento(int id, String nome, String descricao, double precoUnitario, int quantidadeEmEstoque, Categoria categoria) {
-////		super(id, nome, descricao, precoUnitario, quantidadeEmEstoque, categoria);
-////		
+//	public ProdutoIsento(int id, String nome, String descricao, double precoUnitario, int quantidadeEmEstoque, Categoria categoria) {
+//		super(id, nome, descricao, precoUnitario, quantidadeEmEstoque, categoria);
+//		
 //		
 //		if (nome.length() <= 5) {
 //			throw new ComexException ("Nome do produto deve ter no mínimo 6 caracteres");

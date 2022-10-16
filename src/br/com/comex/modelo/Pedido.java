@@ -15,7 +15,9 @@ public class Pedido {
 			contador++;
 		}
 
-	
+		public Pedido (int id) {
+			this.id = id;
+		}
 
 		public int getId() {
 			return id;

@@ -48,16 +48,6 @@ public class Categoria {
 			contador ++; 
 		}
 		
-		
-		
-		/*
-		public void contador() {
-			id = contador;
-			contador ++;
-				}
-		*/
-		
-		
 		public int getId() {
 			return id;
 		}
@@ -73,10 +63,5 @@ public class Categoria {
 		public StatusCategoria getStatus() {
 			return status;
 		}
-		public void setStatus(StatusCategoria status) {
-			this.status = status;
-		}
-		
-		
 		
 }

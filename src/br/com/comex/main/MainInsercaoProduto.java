@@ -25,9 +25,9 @@ public class MainInsercaoProduto {
 																("INSERT INTO comex.produto (nome, descricao, preco_unitario,"
 																		+ " quantidade_estoque, categoria_id, tipo) VALUES (?, ?, ?, ?, ?, ?)", retornaColuna)) {
 			 
-							adicionaVariavel(new Produto("Notebook Samsung", "Tela d", 3523.0, 1, 8,tipo.NAO_ISENTO), statement);
+							adicionaVariavel(new Produto("Notebook Samsung", "Tela 14'', Processador i5 9ª geração, 32GB RAM, SSD 1GB", 13523.0, 1, 8,tipo.NAO_ISENTO), statement);
 			
-							adicionaVariavel(new Produto("Clean Architecture", "Autor:Robert Martin", 102.90, 2, 8, tipo.ISENTO), statement);
+							adicionaVariavel(new Produto("Clean Architecture", "Autor:Robert Martin", 102.90, 2, 10, tipo.ISENTO), statement);
 			
 							adicionaVariavel(new Produto("Monitor Dell 27''", "Ultra HD, 16:9, 2 HDMI 2.0, Bivolt", 1889.00, 3, 8, tipo.NAO_ISENTO), statement);
 	

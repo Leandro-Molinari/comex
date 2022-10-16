@@ -13,7 +13,7 @@ public class MainInsercaoPedido {
 	
 	public static void main(String[] args) throws SQLException {
 	 
-			ConnectionFactory connectionFactory= new ConnectionFactory();
+			ConnectionFactory connectionFactory = new ConnectionFactory();
 			try(Connection connection = connectionFactory.recuperaConexao()){
 		
 				connection.setAutoCommit(false);
