@@ -22,7 +22,18 @@ public class ItemPedido {
 	}
 	
 	
-		
+	public ItemPedido (int id, double preco_Unitario, int quantidade, Produto produto_id, 
+			Pedido pedido_id, double desconto, tipoDesconto tipo_Desconto) {
+
+		this.id = id;
+		this.preco_Unitario = preco_Unitario;
+		this.quantidade = quantidade;
+		this.produto_id = produto_id;
+		this.pedido_id = pedido_id;
+		this.tipo_Desconto = tipo_Desconto;
+
+
+	}	
 	
 	public ItemPedido (double preco_Unitario, int quantidade, Produto produto_id, 
 								Pedido pedido_id, double desconto, tipoDesconto tipo_Desconto) {

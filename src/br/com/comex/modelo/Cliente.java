@@ -92,9 +92,9 @@ public class Cliente {
 			throw new ComexException("Dados Incompletos");
 		}
 		
-		if (id != contador) {
-			throw new ComexException("Id inválido, o próximo Id disponível é: " + contador);
-		}
+//		if (id != contador) {
+//			throw new ComexException("Id inválido, o próximo Id disponível é: " + contador);
+//		}
 		
 		if (nome.length() <= 5) {
 			new ComexException("Nome deve ter mais que 5 letras");
@@ -203,6 +203,9 @@ public class Cliente {
 		
 	}
 
+
+
+	
 
 	
 
