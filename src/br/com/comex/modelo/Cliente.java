@@ -22,6 +22,13 @@ public class Cliente {
 		PI, RJ, RN, RS, RO, RR, SC, SP, SE, TO; 		
 	} 
 		
+	
+	public Cliente (int id) {
+		this.id = id; 
+	}
+	
+	
+	
 	// Id
 	public Cliente (String nome, String cpf, String telefone, String rua, String numero, String complemento,
 			 String bairro, String cidade, siglaEstado uf) {
@@ -73,7 +80,8 @@ public class Cliente {
 				this.uf = uf;
 				contador ++;
 			}
-			
+	
+		
 	//todos
 	public Cliente (int id, String nome, String cpf, String telefone, String rua, String numero, String complemento,
 	 String bairro, String cidade, siglaEstado uf) {
@@ -131,15 +139,15 @@ public class Cliente {
 		contador ++;
 	}
 	
-	public Cliente (int id) {
-		this.id = id;
-	}
-	
 	public void validaestado(siglaEstado uf) {
 			if (uf == null) {
 			throw new ComexException("Favor informar sigla do Estado");
 		}
 			
+	}
+	
+	public int setId(int id) {
+		return this.id = id;
 	}
 	
 	public int getId() {
@@ -187,6 +195,17 @@ public class Cliente {
 				+ ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro + ", cidade=" + cidade
 				+ ", uf=" + uf + "]";
 	}
+
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+		
+	}
+
+
+	
+
 
 	
 	

@@ -21,6 +21,9 @@ public class ItemPedido {
 		
 	}
 	
+	
+		
+	
 	public ItemPedido (double preco_Unitario, int quantidade, Produto produto_id, 
 								Pedido pedido_id, double desconto, tipoDesconto tipo_Desconto) {
 		
@@ -70,6 +73,10 @@ public class ItemPedido {
 		return PrecoTotalSemDesconto;
 	}
 	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public int getId() {
 		return id;
 	}
@@ -77,7 +84,11 @@ public class ItemPedido {
 	public double getPreco_Unitario() {
 		return preco_Unitario;
 	}
-
+	
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+	
 	public int getQuantidade() {
 		return quantidade;
 	}
@@ -105,4 +116,8 @@ public class ItemPedido {
 	public double getcalculaDesconto() {
 		return calculaDesconto();
 	}
-}
+
+	
+	
+
+	}

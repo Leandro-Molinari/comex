@@ -23,12 +23,20 @@ public class Pedido {
 			return id;
 		}
 		
+		public void setData(String data) {
+			this.data = data;
+		}
 		public String getData() {
 			return data;
 		}
 		
 		public Cliente getCliente() {
 			return cliente;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+			
 		}
 
 	

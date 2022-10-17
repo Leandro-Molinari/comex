@@ -10,6 +10,8 @@ public class Produto {
 		private int quantidade_Estoque;
 		private int categoria_id;
 		private tipo tipo;
+	
+		
 		
 		public enum tipo {
 			
@@ -38,10 +40,6 @@ public class Produto {
 				throw new ComexException ("Quantidade não pode estar zerada");
 			}
 			
-//			if (categoria_id == null) {
-//				throw new ComexException ("Deve informar categoria");
-//			}
-			
 			this.id=id;
 			this.nome=nome;
 			this.descricao = descricao;
@@ -66,9 +64,6 @@ public Produto (String nome, String descricao, double preco_Unitario, int quanti
 				throw new ComexException ("Quantidade não pode estar zerada");
 			}
 			
-//			if (categoria_id == null) {
-//				throw new ComexException ("Deve informar categoria");
-//			}
 			
 			this.id=contador;
 			this.nome=nome;
@@ -80,7 +75,7 @@ public Produto (String nome, String descricao, double preco_Unitario, int quanti
 			contador++;
 		}
 		
-
+	
 		public double totalEstoque(double totalEstoque) {
 	       totalEstoque = this.preco_Unitario * this.quantidade_Estoque;
 	    		   return totalEstoque;
@@ -98,7 +93,9 @@ public Produto (String nome, String descricao, double preco_Unitario, int quanti
 			
 		}
 		
-		
+		public int setId(int id) {
+			return this.id = id;
+		}
 		public int getId() {
 			return id;
 		}

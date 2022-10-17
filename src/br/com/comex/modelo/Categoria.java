@@ -60,6 +60,11 @@ public class Categoria {
 		public void setNome(String nome) {
 			this.nome = nome;
 		}
+		
+		public StatusCategoria setStatus() {
+			return status;
+		}
+		
 		public StatusCategoria getStatus() {
 			return status;
 		}
