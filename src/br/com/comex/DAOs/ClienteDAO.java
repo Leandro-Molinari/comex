@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.comex.modelo.Cliente;
+import br.com.comex.modelo.Cliente.siglaEstado;
 
 public class ClienteDAO {
 	
@@ -112,13 +113,13 @@ public class ClienteDAO {
 				registro.getInt("id"), 
 				registro.getString("nome"), 
 				registro.getString("cpf"), 
-				registro.getDouble("telefone"), 	
-				registro.getInt("rua"),
-				registro.getInt("numero"),
+				registro.getString("telefone"), 	
+				registro.getString("rua"),
+				registro.getString("numero"),
 				registro.getString("complemento"),
 				registro.getString("cidade"),
 				registro.getString("bairro"),
-				registro.getString("uf")
+				siglaEstado.valueOf((registro.getString("uf")))
 				);
 						
 		cliente.setId(registro.getInt("id"));

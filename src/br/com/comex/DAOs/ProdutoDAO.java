@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.comex.modelo.Produto;
+import br.com.comex.modelo.Produto.tipo;
 
 public class ProdutoDAO {
 	
@@ -111,7 +112,7 @@ public class ProdutoDAO {
 				registro.getDouble("preco_Unitario"), 	
 				registro.getInt("quantidade_Estoque"),
 				registro.getInt("Categoria_id"),
-				registro.getString("tipo")
+				tipo.valueOf((registro.getString("tipo")))
 				);
 		
 		

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.StatusCategoria;
 
 public class CategoriaDAO {
 	
@@ -98,8 +99,8 @@ public class CategoriaDAO {
 		Categoria categoria = new Categoria(
 				registro.getInt("id"), 
 				registro.getString("nome"), 
-				registro.getString("status")
-				);
+				StatusCategoria.valueOf((registro.getString("tipo"))));
+				
 		
 		categoria.setId(registro.getInt("id"));
 		return categoria;

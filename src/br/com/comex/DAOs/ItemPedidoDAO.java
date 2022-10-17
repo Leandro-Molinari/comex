@@ -9,6 +9,7 @@ import java.util.List;
 import br.com.comex.modelo.Pedido;
 import br.com.comex.modelo.Produto;
 import br.com.comex.modelo.ItemPedido;
+import br.com.comex.modelo.ItemPedido.tipoDesconto;
 
 public class ItemPedidoDAO {
 	
@@ -25,12 +26,12 @@ public class ItemPedidoDAO {
 		String[] retornaColuna = { "id" };
 		
 		try(PreparedStatement statement = conexao.prepareStatement(sql, retornaColuna)){
-			statement.setDouble(1, ItemPedido.getPreco_Unitario());
-			statement.setInt(2, ItemPedido.getQuantidade());
-			statement.setInt(3, ItemPedido.getProduto().getId());
-			statement.setInt(4, ItemPedido.getPedido().getId());
-			statement.setDouble(5, ItemPedido.getcalculaDesconto());
-			statement.setString(6, ItemPedido.getTipo_Desconto().name());
+			statement.setDouble(1, itemPedido.getPreco_Unitario());
+			statement.setInt(2, itemPedido.getQuantidade());
+			statement.setInt(3, itemPedido.getProduto().getId());
+			statement.setInt(4, itemPedido.getPedido().getId());
+			statement.setDouble(5, itemPedido.getcalculaDesconto());
+			statement.setString(6, itemPedido.getTipo_Desconto().name());
 			statement.execute();
 
 				ResultSet result = statement.getGeneratedKeys();
@@ -67,20 +68,20 @@ public class ItemPedidoDAO {
 	}
 	
 	public void alteraItemPedido(ItemPedido itemPedido) throws SQLException {
-		String sql = "UPDATE comex.itemPedido SET preco_unitario = ?, quantidade = ?, produto_id = ?, pedido_id = ?, desconto = ?, tipo_desconto = ?";
+		String sql = "UPDATE comex.item_pedido SET preco_unitario = ?, quantidade = ?, produto_id = ?, pedido_id = ?, desconto = ?, tipo_desconto = ?";
 		
 		String[] retornaColuna = { "id" };
 		
 		try(PreparedStatement statement = conexao.prepareStatement(sql, retornaColuna)){
 			
-			statement.setDouble(1, ItemPedido.getPreco_Unitario());
-			statement.setInt(2, ItemPedido.getQuantidade());
-			statement.setInt(3, ItemPedido.getProduto().getId());
-			statement.setInt(4, ItemPedido.getPedido().getId());
-			statement.setDouble(5, ItemPedido.getcalculaDesconto());
-			statement.setString(6, ItemPedido.getTipo_Desconto().name());
-			statement.execute();
-		
+			statement.setDouble(1, itemPedido.getPreco_Unitario());
+            statement.setInt(2, itemPedido.getQuantidade());
+            statement.setInt(3, itemPedido.getProduto().getId());
+            statement.setInt(4, itemPedido.getPedido().getId());
+            statement.setDouble(5, itemPedido.getcalculaDesconto());
+            statement.setString(6, itemPedido.getTipo_Desconto().name());
+            statement.execute();
+			
 		}
 		
 	}
@@ -108,12 +109,14 @@ public class ItemPedidoDAO {
 				registro.getInt("id"), 
 				registro.getDouble("preco_unitario"), 
 				registro.getInt("quantidade"), 
-				registro.getInt("produto_id"), 	
-				registro.getInt("pedido_id"),
+				new Produto(registro.getInt("produto_id")), 	
+				new Pedido(registro.getInt("pedido_id")),
 				registro.getDouble("desconto"),
-				registro.getString("tipo_desconto")
+				tipoDesconto.valueOf((registro.getString("tipo_Desconto")))
 				);
 			
+
+		
 		itemPedido.setId(registro.getInt("id"));
 		return itemPedido;
 	}

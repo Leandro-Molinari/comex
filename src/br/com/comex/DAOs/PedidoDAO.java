@@ -81,7 +81,7 @@ public class PedidoDAO {
 		String sql = "SELECT * FROM comex.pedido WHERE id = ?";
 		
 		try (PreparedStatement statement = this.conexao.prepareStatement(sql)) {
-			statement.setLong(1, id);
+			statement.setInt(1, id);
 			
 			try (ResultSet registro = statement.executeQuery()) {
 				Pedido pedido = null;
@@ -98,10 +98,10 @@ public class PedidoDAO {
 		Pedido pedido = new Pedido(
 				registro.getInt("id"), 
 				registro.getString("data"), 
-				registro.getInt(getCliente().getId())
+				new Cliente(registro.getInt("cliente_id")
+						)
 				);
-		
-		
+				
 		
 		pedido.setId(registro.getInt("id"));
 		return pedido;

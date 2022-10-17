@@ -8,8 +8,8 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="Libs/ojdbc8-21.7.0.0.jar"/>
 	<classpathentry kind="lib" path="D:/Documents/Repositorio/comex/Libs/ojdbc8-21.7.0.0.jar"/>
-	<classpathentry kind="lib" path="D:/Documents/Level Up/Level Up Semana 9/mysql-connector-java-8.0.17.jar"/>
-	<classpathentry kind="lib" path="D:/Documents/Level Up/Level Up Semana 9/c3p0-0.9.5.4.jar"/>
-	<classpathentry kind="lib" path="D:/Documents/Level Up/Level Up Semana 9/mchange-commons-java-0.2.16.jar"/>
+	<classpathentry kind="lib" path="D:/Documents/Level Up/Level Up Semana 09/mysql-connector-java-8.0.17.jar"/>
+	<classpathentry kind="lib" path="D:/Documents/Level Up/Level Up Semana 09/c3p0-0.9.5.4.jar"/>
+	<classpathentry kind="lib" path="D:/Documents/Level Up/Level Up Semana 09/mchange-commons-java-0.2.16.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
