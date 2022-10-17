@@ -14,8 +14,8 @@ public class MainListagemCategoriaDAO {
 		try(Connection connection= new ConnectionFactory().recuperaConexao()){
 		     CategoriaDAO categoriaDAO = new CategoriaDAO(connection);
 		     Categoria categoria = categoriaDAO.PegaIdCategoria(8);
-		     categoria.setNome("TECNOLOGIA");
-		     categoriaDAO.alteraCategoria(categoria);
+		     //categoria.setNome("TECNOLOGIA");
+		     categoriaDAO.listaCategoria();
 		}
 			
 					
