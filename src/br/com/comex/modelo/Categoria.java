@@ -1,7 +1,8 @@
 package br.com.comex.modelo;
 
+import javax.xml.bind.annotation.XmlRootElement;
 
-
+@XmlRootElement
 public class Categoria {
 	
 		
@@ -9,6 +10,10 @@ public class Categoria {
 		private int id;
 		private String nome;
 		private StatusCategoria status = StatusCategoria.ATIVA;
+		
+		public Categoria() {
+			
+		}
 		
 		public Categoria (int id, String nome, StatusCategoria status) {
 			
