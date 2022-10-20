@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.comex.modelo.Produto;
-import br.com.comex.modelo.Produto.tipo;
+import br.com.comex.modelo.Produto.Tipo;
 
 public class ProdutoDAO {
 	
@@ -31,7 +31,6 @@ public class ProdutoDAO {
 				statement.setInt(4, produto.getQuantidade_Estoque());
 				statement.setInt(5, produto.getCategoria_id());
 				statement.setString(6, produto.getTipo().name());
-				statement.setInt(7, produto.getId());
 				statement.execute();
 
 				ResultSet result = statement.getGeneratedKeys();
@@ -79,7 +78,6 @@ public class ProdutoDAO {
 			statement.setInt(4, produto.getQuantidade_Estoque());
 			statement.setInt(5, produto.getCategoria_id());
 			statement.setString(6, produto.getTipo().name());
-			statement.setInt(7, produto.getId());
 			statement.execute();
 		
 		}
@@ -112,7 +110,7 @@ public class ProdutoDAO {
 				registro.getDouble("preco_Unitario"), 	
 				registro.getInt("quantidade_Estoque"),
 				registro.getInt("Categoria_id"),
-				tipo.valueOf((registro.getString("tipo")))
+				Tipo.valueOf((registro.getString("tipo")))
 				);
 		
 		

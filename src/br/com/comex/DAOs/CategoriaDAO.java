@@ -19,7 +19,7 @@ public class CategoriaDAO {
 	}
 		
 
-		public void insereCategoria(Categoria categoria) throws SQLException {
+	public void insereCategoria(Categoria categoria) throws SQLException {
 		String sql = "INSERT INTO comex.categoria (nome, status) VALUES (?, ?)";
 
 		String[] retornaColuna = { "id" };
@@ -38,27 +38,19 @@ public class CategoriaDAO {
 		}
 	}
 	
-	public List<Categoria> listaCategoria() {
+	public List<Categoria> listaCategoria() throws SQLException {
+		PreparedStatement comandoPreparado = conexao.prepareStatement("SELECT * FROM comex.categoria");
 		
-		try {
-			PreparedStatement comandoPreparado = conexao.prepareStatement("SELECT * FROM comex.categoria");
-			List<Categoria> categorias = new ArrayList<>();
-			ResultSet registros = comandoPreparado.executeQuery();
-			while (registros.next()) {
-				Categoria categoria = this.populaCategoria(registros);
-				categorias.add(categoria);
-				registros.close();
-				comandoPreparado.close();
-				System.out.println(categorias);
-				return categorias;
-			}
-		} catch (Exception e) {
-		  System.out.println(e);
+		List<Categoria> categorias = new ArrayList<>();
+		ResultSet registros = comandoPreparado.executeQuery();
+		while (registros.next()) {
+			categorias.add(this.populaCategoria(registros));
 		}
-		return null;
 		
+		registros.close();
+		comandoPreparado.close();
 		
-	
+		return categorias;
 	}
 	
 	public void excluiCategoria(Long id) throws SQLException {
@@ -105,7 +97,7 @@ public class CategoriaDAO {
 	
 	private Categoria populaCategoria(ResultSet registro) throws SQLException {
 		Categoria categoria = new Categoria(
-				//registro.getInt("id"), 
+				registro.getInt("id"), 
 				registro.getString("nome"), 
 				StatusCategoria.valueOf((registro.getString("status"))));
 				

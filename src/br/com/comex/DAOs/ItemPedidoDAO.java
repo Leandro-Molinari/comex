@@ -9,7 +9,7 @@ import java.util.List;
 import br.com.comex.modelo.Pedido;
 import br.com.comex.modelo.Produto;
 import br.com.comex.modelo.ItemPedido;
-import br.com.comex.modelo.ItemPedido.tipoDesconto;
+import br.com.comex.modelo.ItemPedido.TipoDesconto;
 
 public class ItemPedidoDAO {
 	
@@ -43,7 +43,7 @@ public class ItemPedidoDAO {
 	}
 	
 	public List<ItemPedido> listaItemPedido() throws SQLException {
-		PreparedStatement comandoPreparado = conexao.prepareStatement("SELECT * FROM comex.itemPedido");
+		PreparedStatement comandoPreparado = conexao.prepareStatement("SELECT * FROM comex.item_pedido");
 		
 		List<ItemPedido> itemPedidos = new ArrayList<>();
 		ResultSet registros = comandoPreparado.executeQuery();
@@ -58,7 +58,7 @@ public class ItemPedidoDAO {
 	}
 	
 	public void excluiItemPedido(Long id) throws SQLException {
-		String sql = "DELETE FROM comex.itemPedido WHERE id = ?";
+		String sql = "DELETE FROM comex.item_pedido WHERE id = ?";
 		
 		try(PreparedStatement statement = conexao.prepareStatement(sql)){
 			statement.setLong(1, id);
@@ -88,7 +88,7 @@ public class ItemPedidoDAO {
 
 	
 	public ItemPedido PegaIdItemPedido(int id) throws SQLException {
-		String sql = "SELECT * FROM comex.itemPedido WHERE id = ?";
+		String sql = "SELECT * FROM comex.item_pedido WHERE id = ?";
 		
 		try (PreparedStatement statement = this.conexao.prepareStatement(sql)) {
 			statement.setLong(1, id);
@@ -112,7 +112,7 @@ public class ItemPedidoDAO {
 				new Produto(registro.getInt("produto_id")), 	
 				new Pedido(registro.getInt("pedido_id")),
 				registro.getDouble("desconto"),
-				tipoDesconto.valueOf((registro.getString("tipo_Desconto")))
+				TipoDesconto.valueOf((registro.getString("tipo_Desconto")))
 				);
 			
 
