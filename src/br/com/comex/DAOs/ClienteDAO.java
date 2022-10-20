@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.comex.modelo.Cliente;
-import br.com.comex.modelo.Cliente.siglaEstado;
+import br.com.comex.modelo.Cliente.SiglaEstado;
 
 public class ClienteDAO {
 	
@@ -20,8 +20,8 @@ public class ClienteDAO {
 		
 
 	public void insereCliente(Cliente cliente) throws SQLException {
-		String sql = "INSERT INTO comex.cliente (nome, descricao, preco_unitario, quantidade_estoque, categoria_id, tipo) VALUES (?, ?, ?, ?, ?, ?)";
-
+		String sql = "INSERT INTO comex.cliente (nome, cpf, telefone, rua, numero, complemento, bairro, cidade, uf) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+																																												
 		String[] retornaColuna = { "id" };
 		
 		try(PreparedStatement statement = conexao.prepareStatement(sql, retornaColuna)){
@@ -31,8 +31,8 @@ public class ClienteDAO {
 			statement.setString(4, cliente.getRua());
 			statement.setString(5, cliente.getNumero());
 			statement.setString(6, cliente.getComplemento());
-			statement.setString(7, cliente.getCidade());
 			statement.setString(8, cliente.getBairro());
+			statement.setString(7, cliente.getCidade());
 			statement.setString(9, cliente.getUf().name());
 			statement.execute();
 
@@ -52,7 +52,7 @@ public class ClienteDAO {
 		while (registros.next()) {
 			clientes.add(this.populaCliente(registros));
 		}
-		
+		System.out.println(clientes);
 		registros.close();
 		comandoPreparado.close();
 		
@@ -70,7 +70,7 @@ public class ClienteDAO {
 	}
 	
 	public void alteraCliente(Cliente cliente) throws SQLException {
-		String sql = "UPDATE comex.cliente SET nome = ?, descricao = ?, preco_unitario = ?, quantidade_estoque = ?, categoria_id = ?, tipo = ?";
+		String sql = "UPDATE comex.cliente SET nome = ?, cpf = ?, telefone = ?, rua = ?, numero = ?, complemento = ?, bairro = ?, cidade = ?, uf = ?  WHERE id = ?";
 		
 		
 		try(PreparedStatement statement = conexao.prepareStatement(sql)){
@@ -81,9 +81,10 @@ public class ClienteDAO {
 			statement.setString(4, cliente.getRua());
 			statement.setString(5, cliente.getNumero());
 			statement.setString(6, cliente.getComplemento());
-			statement.setString(7, cliente.getCidade());
 			statement.setString(8, cliente.getBairro());
+			statement.setString(7, cliente.getCidade());
 			statement.setString(9, cliente.getUf().name());
+			statement.setInt(10, cliente.getId());
 			statement.execute();
 		
 		}
@@ -117,9 +118,9 @@ public class ClienteDAO {
 				registro.getString("rua"),
 				registro.getString("numero"),
 				registro.getString("complemento"),
-				registro.getString("cidade"),
 				registro.getString("bairro"),
-				siglaEstado.valueOf((registro.getString("uf")))
+				registro.getString("cidade"),
+				SiglaEstado.valueOf((registro.getString("uf")))
 				);
 						
 		cliente.setId(registro.getInt("id"));

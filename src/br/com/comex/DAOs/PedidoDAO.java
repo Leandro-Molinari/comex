@@ -20,7 +20,7 @@ public class PedidoDAO {
 		
 
 	public void inserePedido(Pedido pedido) throws SQLException {
-		String sql = "INSERT INTO comex.pedido (INSERT INTO comex.pedido (data, cliente_id) VALUES (?, ?)";
+		String sql = "INSERT INTO comex.pedido (data, cliente_id) VALUES (?, ?)";
 
 		String[] retornaColuna = { "id" };
 		

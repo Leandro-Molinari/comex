@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import br.com.comex.modelo.ConnectionFactory;
 import br.com.comex.modelo.ItemPedido;
-import br.com.comex.modelo.ItemPedido.tipoDesconto;
+import br.com.comex.modelo.ItemPedido.TipoDesconto;
 import br.com.comex.modelo.Pedido;
 import br.com.comex.modelo.Produto;
 
@@ -27,9 +27,9 @@ public class MainInsercaoItemPedido {
 					try(PreparedStatement statement = connection.prepareStatement
 							("INSERT INTO comex.item_pedido (preco_unitario, quantidade, produto_id, pedido_id, desconto, tipo_desconto) VALUES (?, ?, ?, ?, ?, ?)", retornaColuna)) {
 			 
-							adicionaVariavel(new ItemPedido(3523.20, 20, new Produto(11), new Pedido(10), itemPedido.calculaDesconto(), tipoDesconto.PROMOCAO ), statement);
-							adicionaVariavel(new ItemPedido(102.90,2, new Produto(10), new Pedido(8), itemPedido.calculaDesconto(), tipoDesconto.NENHUM ), statement);
-							adicionaVariavel(new ItemPedido(3523.20,18, new Produto(11), new Pedido(8), itemPedido.calculaDesconto(), tipoDesconto.NENHUM ), statement);
+							adicionaVariavel(new ItemPedido(3523.20, 20, new Produto(10), new Pedido(10), itemPedido.calculaDesconto(), TipoDesconto.PROMOCAO ), statement);
+							adicionaVariavel(new ItemPedido(102.90,2, new Produto(9), new Pedido(8), itemPedido.calculaDesconto(), TipoDesconto.NENHUM ), statement);
+							adicionaVariavel(new ItemPedido(3523.20,18, new Produto(8), new Pedido(8), itemPedido.calculaDesconto(), TipoDesconto.NENHUM ), statement);
 
 							System.out.println("Dados inseridos com sucesso, conexão encerrada.");
 							connection.commit();

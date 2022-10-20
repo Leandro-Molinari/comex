@@ -1,7 +1,7 @@
 package br.com.comex.main;
 
 import br.com.comex.modelo.Produto;
-import br.com.comex.modelo.Produto.tipo;
+import br.com.comex.modelo.Produto.Tipo;
 import br.com.comex.modelo.ProdutoIsento;
 
 import java.sql.Connection;
@@ -26,11 +26,11 @@ public class MainInsercaoProduto {
 																("INSERT INTO comex.produto (nome, descricao, preco_unitario,"
 																		+ " quantidade_estoque, categoria_id, tipo) VALUES (?, ?, ?, ?, ?, ?)", retornaColuna)) {
 			 
-							adicionaVariavel(new Produto("Notebook Samsung", "Tela 14'', Processador i5 9ª geração, 32GB RAM, SSD 1GB", 14523.0, 1, 8,tipo.NAO_ISENTO), statement);
+							adicionaVariavel(new Produto("Notebook Samsung", "Tela 14'', Processador i5 9ª geração, 32GB RAM, SSD 1GB", 14523.0, 1, 8,Tipo.NAO_ISENTO), statement);
 			
-							adicionaVariavel(new ProdutoIsento("Clean Architecture", "Autor:Robert Martin", 104.90, 2, 10, tipo.ISENTO), statement);
+							adicionaVariavel(new ProdutoIsento("Clean Architecture", "Autor:Robert Martin", 104.90, 2, 10, Tipo.ISENTO), statement);
 			
-							adicionaVariavel(new Produto("Monitor Dell 27''", "Ultra HD, 16:9, 2 HDMI 2.0, Bivolt", 1884.00, 3, 8, tipo.NAO_ISENTO), statement);
+							adicionaVariavel(new Produto("Monitor Dell 27''", "Ultra HD, 16:9, 2 HDMI 2.0, Bivolt", 1884.00, 3, 8, Tipo.NAO_ISENTO), statement);
 	
 							System.out.println("Dados inseridos com sucesso, conexão encerrada.");
 							connection.commit();

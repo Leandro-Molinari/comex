@@ -14,9 +14,9 @@ public class Cliente {
 	private String complemento;
 	private String bairro;
 	private String cidade;
-	private siglaEstado uf;
+	private SiglaEstado uf;
 	
-	public enum siglaEstado {
+	public enum SiglaEstado {
 		
 		AC, AL, AP, AM, BA, CE, DF, 	ES, GO, MA, MT, MS, MG, PA, PB, PR, PE, 
 		PI, RJ, RN, RS, RO, RR, SC, SP, SE, TO; 		
@@ -31,7 +31,7 @@ public class Cliente {
 	
 	// Id
 	public Cliente (String nome, String cpf, String telefone, String rua, String numero, String complemento,
-			 String bairro, String cidade, siglaEstado uf) {
+			 String bairro, String cidade, SiglaEstado uf) {
 				
 				if (uf == null) {
 					throw new ComexException("Favor informar sigla do Estado");
@@ -84,7 +84,7 @@ public class Cliente {
 		
 	//todos
 	public Cliente (int id, String nome, String cpf, String telefone, String rua, String numero, String complemento,
-	 String bairro, String cidade, siglaEstado uf) {
+	 String bairro, String cidade, SiglaEstado uf) {
 		
 		if (nome == null || cpf == null || rua == null || numero == null || bairro == null || 
 				cidade == null || uf == null) {
@@ -139,7 +139,7 @@ public class Cliente {
 		contador ++;
 	}
 	
-	public void validaestado(siglaEstado uf) {
+	public void validaestado(SiglaEstado uf) {
 			if (uf == null) {
 			throw new ComexException("Favor informar sigla do Estado");
 		}
@@ -182,18 +182,18 @@ public class Cliente {
 	public String getCidade() {
 		return cidade;
 	}
-	public siglaEstado getUf() {
+	public SiglaEstado getUf() {
 		return uf;
 	}
-	public void setUf(siglaEstado uf) {
+	public void setUf(SiglaEstado uf) {
 		this.uf = uf;
 	}
 
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone + ", rua=" + rua
+		return "Cliente [id= " + id + ", nome = " + nome + ", cpf = " + cpf + ", telefone=" + telefone + ", rua=" + rua
 				+ ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro + ", cidade=" + cidade
-				+ ", uf=" + uf + "]";
+				+ ", uf=" + uf + "]" + System.lineSeparator();
 	}
 
 

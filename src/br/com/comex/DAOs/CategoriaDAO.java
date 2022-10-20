@@ -99,7 +99,7 @@ public class CategoriaDAO {
 		Categoria categoria = new Categoria(
 				registro.getInt("id"), 
 				registro.getString("nome"), 
-				StatusCategoria.valueOf((registro.getString("tipo"))));
+				StatusCategoria.valueOf((registro.getString("status"))));
 				
 		
 		categoria.setId(registro.getInt("id"));

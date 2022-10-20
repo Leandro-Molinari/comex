@@ -12,7 +12,7 @@ public class MainRemocaoCategoria {
 		ConnectionFactory connectionFactory= new ConnectionFactory();
 		try(Connection connection = connectionFactory.recuperaConexao()){
 		
-			try(PreparedStatement statement = connection.prepareStatement("DELETE FROM comex.pedido where cliente_id = '10'")){
+			try(PreparedStatement statement = connection.prepareStatement("DELETE FROM comex.categoria where id = '9'")){
 		
 				statement.execute();
 				Integer exclusoes = statement.getUpdateCount();
