@@ -13,6 +13,7 @@ public class ConnectionFactory {
 		
 		public ConnectionFactory() {
 			
+			try {
 				ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
 				comboPooledDataSource.setJdbcUrl("jdbc:oracle:thin:@localhost:1521:xe");
 				comboPooledDataSource.setUser("System");
@@ -21,12 +22,25 @@ public class ConnectionFactory {
 				comboPooledDataSource.setMaxPoolSize(15);
 				
 				this.dataSource = comboPooledDataSource;
+			} catch (Exception e) {
+				
+			}
+			
+				
 		}
 	
-		public Connection recuperaConexao() throws SQLException {
+		public Connection recuperaConexao()  {
+			
+			try {
+				return this.dataSource.getConnection();
+			} catch (Exception e) {
+				
+				
+			}
+			return null;
 		
-		return this.dataSource.getConnection();
 		
 	}
-	
+
+
 }

@@ -12,7 +12,7 @@ public class Categoria {
 		private StatusCategoria status = StatusCategoria.ATIVA;
 		
 		public Categoria() {
-			
+			super();
 		}
 		
 		public Categoria (int id, String nome, StatusCategoria status) {
@@ -72,6 +72,11 @@ public class Categoria {
 		
 		public StatusCategoria getStatus() {
 			return status;
+		}
+
+		@Override
+		public String toString() {
+			return "Categoria [id=" + id + ", nome=" + nome + ", status=" + status + "]" + System.lineSeparator();
 		}
 		
 }
