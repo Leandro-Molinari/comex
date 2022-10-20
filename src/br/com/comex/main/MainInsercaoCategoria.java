@@ -23,9 +23,9 @@ public class MainInsercaoCategoria{
 			try(PreparedStatement statement = connection.prepareStatement
 																	("INSERT INTO comex.categoria (nome, status) VALUES (?, ?)", retornaColuna)) {
 				
-				adicionaVariavel(new Categoria("INFORMÁTICA", StatusCategoria.ATIVA), statement);
-				adicionaVariavel(new Categoria("MÓVEIS", StatusCategoria.INATIVA), statement);
-				adicionaVariavel(new Categoria("LIVROS", StatusCategoria.ATIVA), statement);
+				adicionaVariavel(new Categoria("askjfg", StatusCategoria.ATIVA), statement);
+				adicionaVariavel(new Categoria("qwerg", StatusCategoria.INATIVA), statement);
+				adicionaVariavel(new Categoria("vqerhqh", StatusCategoria.ATIVA), statement);
 				
 				System.out.println();
 				System.out.println("Dados inseridos com sucesso, conexão encerrada.");

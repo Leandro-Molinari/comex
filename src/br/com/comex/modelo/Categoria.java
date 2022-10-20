@@ -59,7 +59,7 @@ public class Categoria {
 			this.nome = nome;
 		}
 		
-		public StatusCategoria setStatus() {
+		public StatusCategoria setStatus(StatusCategoria inativa) {
 			return status;
 		}
 		

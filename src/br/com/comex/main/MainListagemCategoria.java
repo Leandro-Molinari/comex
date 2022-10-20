@@ -1,13 +1,9 @@
 package br.com.comex.main;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-//import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.comex.DAOs.CategoriaDAO;
-import br.com.comex.modelo.Categoria;
 import br.com.comex.modelo.ConnectionFactory;
 
 public class MainListagemCategoria {

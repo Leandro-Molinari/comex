@@ -19,7 +19,7 @@ public class CategoriaDAO {
 	}
 		
 
-		public void insereCategoria(Categoria categoria) throws SQLException {
+	public void insereCategoria(Categoria categoria) throws SQLException {
 		String sql = "INSERT INTO comex.categoria (nome, status) VALUES (?, ?)";
 
 		String[] retornaColuna = { "id" };
@@ -38,47 +38,40 @@ public class CategoriaDAO {
 		}
 	}
 	
-	public List<Categoria> listaCategoria() {
+	public List<Categoria> listaCategoria() throws SQLException {
+		PreparedStatement comandoPreparado = conexao.prepareStatement("SELECT * FROM comex.categoria");
 		
-		try {
-			PreparedStatement comandoPreparado = conexao.prepareStatement("SELECT * FROM comex.categoria");
-			List<Categoria> categorias = new ArrayList<>();
-			ResultSet registros = comandoPreparado.executeQuery();
-			while (registros.next()) {
-				Categoria categoria = this.populaCategoria(registros);
-				categorias.add(categoria);
-				registros.close();
-				comandoPreparado.close();
-				System.out.println(categorias);
-				return categorias;
-			}
-		} catch (Exception e) {
-		  System.out.println(e);
+		List<Categoria> categorias = new ArrayList<>();
+		ResultSet registros = comandoPreparado.executeQuery();
+		while (registros.next()) {
+			categorias.add(this.populaCategoria(registros));
 		}
-		return null;
+		System.out.println(categorias);
+		registros.close();
+		comandoPreparado.close();
 		
-		
-	
+		return categorias;
 	}
 	
-	public void excluiCategoria(Long id) throws SQLException {
+	public void excluiCategoria(Categoria categoria) throws SQLException {
 		String sql = "DELETE FROM comex.categoria WHERE id = ?";
 		
 		try(PreparedStatement statement = conexao.prepareStatement(sql)){
-			statement.setLong(1, id);
+			statement.setLong(1, categoria.getId());
 			statement.execute();
 		}
 		
 	}
 	
 	public void alteraCategoria(Categoria categoria) throws SQLException {
-		String sql = "UPDATE comex.categoria SET nome = ?, status = ?";
+		String sql = "UPDATE comex.categoria SET nome = ?, status = ? WHERE id = ?";
 		
 		
 		try(PreparedStatement statement = conexao.prepareStatement(sql)){
 			
 			statement.setString(1, categoria.getNome());
 			statement.setString(2, categoria.getStatus().name());
+			statement.setInt(3, categoria.getId());
 			statement.execute();
 		
 		}
@@ -105,7 +98,7 @@ public class CategoriaDAO {
 	
 	private Categoria populaCategoria(ResultSet registro) throws SQLException {
 		Categoria categoria = new Categoria(
-				//registro.getInt("id"), 
+				registro.getInt("id"), 
 				registro.getString("nome"), 
 				StatusCategoria.valueOf((registro.getString("status"))));
 				
@@ -115,3 +108,4 @@ public class CategoriaDAO {
 	}
 
 }
+

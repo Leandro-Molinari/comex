@@ -2,7 +2,6 @@ package br.com.comex.modelo;
 
 public class ItemPedido {
 	
-	private static int contador = 1;
 	private int id;
 	private double preco_Unitario;
 	private int quantidade;

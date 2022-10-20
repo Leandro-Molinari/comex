@@ -4,7 +4,7 @@ package br.com.comex.modelo;
 
 public class Cliente {
 	
-	private static int contador  = 1;
+	
 	private int id;
 	private String nome;
 	private String cpf;
@@ -22,13 +22,10 @@ public class Cliente {
 		PI, RJ, RN, RS, RO, RR, SC, SP, SE, TO; 		
 	} 
 		
-	
 	public Cliente (int id) {
 		this.id = id; 
 	}
-	
-	
-	
+			
 	// Id
 	public Cliente (String nome, String cpf, String telefone, String rua, String numero, String complemento,
 			 String bairro, String cidade, SiglaEstado uf) {
@@ -68,7 +65,7 @@ public class Cliente {
 					throw new ComexException("Nome da Cidade bairro corretetamente");
 				}
 				
-				this.id = contador;
+				
 				this.nome = nome;
 				this.cpf = cpf;
 				this.telefone = telefone;
@@ -78,7 +75,7 @@ public class Cliente {
 				this.bairro = bairro;
 				this.cidade = cidade;
 				this.uf = uf;
-				contador ++;
+		
 			}
 	
 		
@@ -92,7 +89,10 @@ public class Cliente {
 			throw new ComexException("Dados Incompletos");
 		}
 		
-
+//		if (id != contador) {
+//			throw new ComexException("Id inválido, o próximo Id disponível é: " + contador);
+//		}
+		
 		if (nome.length() <= 5) {
 			new ComexException("Nome deve ter mais que 5 letras");
 		}
@@ -133,7 +133,7 @@ public class Cliente {
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.uf = uf;
-		contador ++;
+		
 	}
 	
 	public void validaestado(SiglaEstado uf) {
@@ -188,27 +188,41 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", telefone=" + telefone + ", rua=" + rua
+		return "Cliente [id= " + id + ", nome = " + nome + ", cpf = " + cpf + ", telefone=" + telefone + ", rua=" + rua
 				+ ", numero=" + numero + ", complemento=" + complemento + ", bairro=" + bairro + ", cidade=" + cidade
 				+ ", uf=" + uf + "]" + System.lineSeparator();
 	}
 
 
-
 	public void setNome(String nome) {
-		this.nome = nome;
-		
+		this.nome = nome;		
 	}
 
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 
-	
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
 
-	
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
 
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
 
-	
-	
-	
-	
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
 }

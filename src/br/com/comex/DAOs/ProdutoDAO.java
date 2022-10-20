@@ -50,24 +50,25 @@ public class ProdutoDAO {
 			produtos.add(this.populaProduto(registros));
 		}
 		
+		System.out.println(produtos);
 		registros.close();
 		comandoPreparado.close();
 		
 		return produtos;
 	}
 	
-	public void excluiProduto(Long id) throws SQLException {
+	public void excluiProduto(Produto produto) throws SQLException {
 		String sql = "DELETE FROM comex.produto WHERE id = ?";
 		
 		try(PreparedStatement statement = conexao.prepareStatement(sql)){
-			statement.setLong(1, id);
+			statement.setLong(1, produto.getId());
 			statement.execute();
 		}
 		
 	}
 	
 	public void alteraProduto(Produto produto) throws SQLException {
-		String sql = "UPDATE comex.produto SET nome = ?, descricao = ?, preco_unitario = ?, quantidade_estoque = ?, categoria_id = ?, tipo = ?";
+		String sql = "UPDATE comex.produto SET nome = ?, descricao = ?, preco_unitario = ?, quantidade_estoque = ?, categoria_id = ?, tipo = ? WHERE id = ?";
 		
 		
 		try(PreparedStatement statement = conexao.prepareStatement(sql)){
@@ -78,6 +79,7 @@ public class ProdutoDAO {
 			statement.setInt(4, produto.getQuantidade_Estoque());
 			statement.setInt(5, produto.getCategoria_id());
 			statement.setString(6, produto.getTipo().name());
+			statement.setInt(7, produto.getId());
 			statement.execute();
 		
 		}

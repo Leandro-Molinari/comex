@@ -18,10 +18,7 @@ public class ClienteDAO {
 		this.conexao = conexao;
 	}
 		
-	public void insereCliente() {
-		// TODO Auto-generated method stub
-		
-	}
+
 	public void insereCliente(Cliente cliente) throws SQLException {
 		String sql = "INSERT INTO comex.cliente (nome, cpf, telefone, rua, numero, complemento, bairro, cidade, uf) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 																																												
@@ -47,7 +44,6 @@ public class ClienteDAO {
 		}
 	}
 	
-	
 	public List<Cliente> listaCliente() throws SQLException {
 		PreparedStatement comandoPreparado = conexao.prepareStatement("SELECT * FROM comex.cliente");
 		
@@ -63,11 +59,11 @@ public class ClienteDAO {
 		return clientes;
 	}
 	
-	public void excluiCliente(Long id) throws SQLException {
+	public void excluiCliente(Cliente cliente) throws SQLException {
 		String sql = "DELETE FROM comex.cliente WHERE id = ?";
 		
 		try(PreparedStatement statement = conexao.prepareStatement(sql)){
-			statement.setLong(1, id);
+			statement.setInt(1, cliente.getId());
 			statement.execute();
 		}
 		
@@ -132,6 +128,9 @@ public class ClienteDAO {
 	}
 
 
-	
+	public Cliente insereCliente() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

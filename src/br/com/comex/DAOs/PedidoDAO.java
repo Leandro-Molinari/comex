@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.comex.modelo.Cliente;
 import br.com.comex.modelo.Pedido;
 
 public class PedidoDAO {
@@ -26,7 +25,7 @@ public class PedidoDAO {
 		
 		try(PreparedStatement statement = conexao.prepareStatement(sql, retornaColuna)){
 			statement.setString(1, pedido.getData());
-			statement.setInt(2, pedido.getCliente().getId());
+			statement.setInt(2, pedido.getId());
 			statement.execute();
 
 				ResultSet result = statement.getGeneratedKeys();
@@ -52,11 +51,11 @@ public class PedidoDAO {
 		return pedidos;
 	}
 	
-	public void excluiPedido(Long id) throws SQLException {
+	public void excluiPedido(Pedido pedido) throws SQLException {
 		String sql = "DELETE FROM comex.pedido WHERE id = ?";
 		
 		try(PreparedStatement statement = conexao.prepareStatement(sql)){
-			statement.setLong(1, id);
+			statement.setInt(1, pedido.getId());
 			statement.execute();
 		}
 		
@@ -69,7 +68,7 @@ public class PedidoDAO {
 		try(PreparedStatement statement = conexao.prepareStatement(sql)){
 			
 			statement.setString(1, pedido.getData());
-			statement.setInt(2, pedido.getCliente().getId());
+			statement.setInt(2, pedido.getId());
 			statement.execute();
 		
 		}
@@ -98,8 +97,7 @@ public class PedidoDAO {
 		Pedido pedido = new Pedido(
 				registro.getInt("id"), 
 				registro.getString("data"), 
-				new Cliente(registro.getInt("cliente_id")
-						)
+				registro.getInt("cliente_id")
 				);
 				
 		
