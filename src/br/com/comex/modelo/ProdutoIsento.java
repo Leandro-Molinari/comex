@@ -4,7 +4,7 @@ public class ProdutoIsento extends Produto {
 	
 
 	
-	public ProdutoIsento(String nome, String descricao, double preco_Unitario, int quantidade_Estoque, int categoria_id, tipo tipo) {
+	public ProdutoIsento(String nome, String descricao, double preco_Unitario, int quantidade_Estoque, int categoria_id, Tipo tipo) {
 		super(nome, descricao, preco_Unitario, quantidade_Estoque, categoria_id, tipo);
 		
 				

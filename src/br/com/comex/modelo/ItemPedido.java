@@ -9,9 +9,9 @@ public class ItemPedido {
 	private Produto produto_id;
 	private Pedido pedido_id;
 	private double desconto;
-	private tipoDesconto tipo_Desconto;
+	private TipoDesconto tipo_Desconto;
 	
-	public enum tipoDesconto{
+	public enum TipoDesconto{
 		
 		NENHUM, PROMOCAO;
 		
@@ -23,7 +23,7 @@ public class ItemPedido {
 	
 	
 	public ItemPedido (int id, double preco_Unitario, int quantidade, Produto produto_id, 
-			Pedido pedido_id, double desconto, tipoDesconto tipo_Desconto) {
+			Pedido pedido_id, double desconto, TipoDesconto tipo_Desconto) {
 
 		this.id = id;
 		this.preco_Unitario = preco_Unitario;
@@ -36,16 +36,15 @@ public class ItemPedido {
 	}	
 	
 	public ItemPedido (double preco_Unitario, int quantidade, Produto produto_id, 
-								Pedido pedido_id, double desconto, tipoDesconto tipo_Desconto) {
+								Pedido pedido_id, double desconto, TipoDesconto tipo_Desconto) {
 		
-		this.id = contador;
+	
 		this.preco_Unitario = preco_Unitario;
 		this.quantidade = quantidade;
 		this.produto_id = produto_id;
 		this.pedido_id = pedido_id;
 		this.tipo_Desconto = tipo_Desconto;
 		
-		contador++;
 	}
 	
 	public double PrecoTotalSemDesconto() {
@@ -55,16 +54,16 @@ public class ItemPedido {
 	
 	public double calculaDesconto() {
 	
-	if(tipo_Desconto != tipoDesconto.NENHUM && tipo_Desconto != tipoDesconto.PROMOCAO) {
+	if(tipo_Desconto != TipoDesconto.NENHUM && tipo_Desconto != TipoDesconto.PROMOCAO) {
 		System.out.println("Tipo de desconto inválido");
 	} else {
-			if(tipo_Desconto == tipoDesconto.NENHUM && quantidade <= 10) {
+			if(tipo_Desconto == TipoDesconto.NENHUM && quantidade <= 10) {
 				desconto = 0;
 			}else {
-					if (tipo_Desconto == tipoDesconto.NENHUM && quantidade > 10) {
+					if (tipo_Desconto == TipoDesconto.NENHUM && quantidade > 10) {
 						desconto = 0.1;
 					}else {
-						if(tipo_Desconto == tipoDesconto.PROMOCAO) {
+						if(tipo_Desconto == TipoDesconto.PROMOCAO) {
 							desconto = 0.2;
 						}
 						
@@ -120,7 +119,7 @@ public class ItemPedido {
 		return desconto;
 	}
 	
-	public tipoDesconto getTipo_Desconto() {
+	public TipoDesconto getTipo_Desconto() {
 		return tipo_Desconto;
 	}
 

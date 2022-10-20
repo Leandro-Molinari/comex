@@ -18,7 +18,7 @@ public class ComexWS {
 	
 		CategoriaDAO categoriaDao = new CategoriaDAO(connection);
 	
-		public List<Categoria> getCategorias(){
+		public List<Categoria> getCategorias() throws SQLException{
 		
 		List<Categoria> listarCategorias = categoriaDao.listaCategoria(); 
 		

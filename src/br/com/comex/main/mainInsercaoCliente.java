@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import br.com.comex.modelo.Cliente;
 import br.com.comex.modelo.ConnectionFactory;
-import br.com.comex.modelo.Cliente.siglaEstado;
+import br.com.comex.modelo.Cliente.SiglaEstado;
 
 public class mainInsercaoCliente {
 
@@ -23,9 +23,9 @@ public class mainInsercaoCliente {
 			try(PreparedStatement statement = connection.prepareStatement
 																	("INSERT INTO comex.cliente (nome, cpf, telefone, rua, numero, complemento, cidade, bairro, uf) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", retornaColuna)) {
 		
-		adicionaVariavel(new Cliente("Ana","123.456.789-10","(41)96523-8745","Rua das Cacatuas","S/N","Fundos","Ipopeba","Catanduvas", siglaEstado.PR), statement);
-		adicionaVariavel(new Cliente("Eli","456.789.101-12","(41) 99101-1121","Rua dos Bartucres","345","Ap-081","Carauru","Intaprevale", siglaEstado.SP), statement);
-		adicionaVariavel(new Cliente("Gabi","314.151.617-18","(41) 91011-1213","Rua João da Luz","998","Casa 2","Parapaús","Rio Molhado", siglaEstado.PA), statement);		
+		adicionaVariavel(new Cliente("Ana","123.456.789-10","(41)96523-8745","Rua das Cacatuas","S/N","Fundos","Ipopeba","Catanduvas", SiglaEstado.PR), statement);
+		adicionaVariavel(new Cliente("Eli","456.789.101-12","(41) 99101-1121","Rua dos Bartucres","345","Ap-081","Carauru","Intaprevale", SiglaEstado.SP), statement);
+		adicionaVariavel(new Cliente("Gabi","314.151.617-18","(41) 91011-1213","Rua João da Luz","998","Casa 2","Parapaús","Rio Molhado", SiglaEstado.PA), statement);		
 
 		System.out.println();
 		System.out.println("Cliente(s) adicionado(s) com sucesso");

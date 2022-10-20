@@ -6,7 +6,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Categoria {
 	
 		
-		private static int contador = 1;
 		private int id;
 		private String nome;
 		private StatusCategoria status = StatusCategoria.ATIVA;
@@ -17,10 +16,6 @@ public class Categoria {
 		
 		public Categoria (int id, String nome, StatusCategoria status) {
 			
-			if (id != contador) {
-				throw new ComexException ("Id inválido ou duplicado! O PRÓXIMO Id DISPONÍVEL É '" + contador + "'");
-			}
-
 			if (nome.length() <= 3) {
 				throw new ComexException ("Nome deve ter no minimo 4 caracteres");
 			}
@@ -32,8 +27,7 @@ public class Categoria {
 			 this.id = id;
 			this.nome = nome;
 			this.status = status;
-			contador ++; 
-		}
+			}
 		
 		
 		public Categoria (String nome, StatusCategoria status)  {
@@ -47,10 +41,9 @@ public class Categoria {
 			}
 			
 						
-			this.id = contador;
 			this.nome = nome;
 			this.status = status;
-			contador ++; 
+			
 		}
 		
 		public int getId() {
