@@ -1,38 +1,88 @@
 package br.com.comex.ws;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.jws.WebMethod;
-import javax.jws.WebResult;
 import javax.jws.WebService;
+import javax.sql.DataSource;
 
 import br.com.comex.DAOs.CategoriaDAO;
 import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.ConnectionFactory;
+import br.com.comex.modelo.StatusCategoria;
 
-@WebService
+@WebService	
 public class ComexWS {
 
-	private final Connection conexao = null;
-	private CategoriaDAO categoriaDAO = new CategoriaDAO(conexao);
+	public DataSource dataSource;	
 	
-		@WebMethod(operationName="todosOsItens")
-		@WebResult(name = "itens")
-	  public List<Categoria> getItens() throws SQLException{
-		  
-		  System.out.println("Chamando getItens()");
-          List<Categoria> lista = null;
- //	  Categoria lista = null;
-//		try {
-//			lista = (Categoria) CategoriaDAO.listaCategoria();
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		  System.out.println("Chamando getItens()");
-		  return  lista;
-	  }
-	  
+public Connection recuperaConexao() throws SQLException {
+		
+		return this.dataSource.getConnection();
+		
+	}
+	
+	ConnectionFactory connectionFactory= new ConnectionFactory();
+	Connection connection = connectionFactory.recuperaConexao();
+	
+	try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM comex.categoria")){
+			statement.execute();
+	
+			try(ResultSet resultado = statement.getResultSet()){
+	
+				while(resultado.next()) {
+		
+					String id = resultado.getString(1);
+					System.out.print(id + " -  ");
+					String nome= resultado.getString("nome" );
+					System.out.print(nome + " -  ");
+					String status= resultado.getString("status");
+					System.out.println(status);
+				}
+			}
+		}
+	
 }
+
+//
+//CategoriaDAO categoriaDAO = new CategoriaDAO();
+//private Connection conexao;
+//public CategoriaDAO(Connection conexao) { 
+//	this.conexao = conexao;
+//}
+//public List<Categoria>getCategorias() throws SQLException{
+//		
+//		PreparedStatement comandoPreparado = conexao.prepareStatement("SELECT * FROM comex.categoria");
+//		
+//		List<Categoria> categorias = new ArrayList<>();
+//		ResultSet registros = comandoPreparado.executeQuery();
+//		while (registros.next()) {
+//			categorias.add(this.populaCategoria(registros));
+//		}
+//		
+//		registros.close();
+//		comandoPreparado.close();
+//		
+//		return categorias;
+//	}
+//
+//private Categoria populaCategoria(ResultSet registro) throws SQLException {
+//	Categoria categoria = new Categoria(
+//			registro.getInt("id"), 
+//			registro.getString("nome"), 
+//			StatusCategoria.valueOf((registro.getString("tipo"))));
+//			
+//	
+//	categoria.setId(registro.getInt("id"));
+//	return categoria;
+//}	
+//
+//
+
+
+
+

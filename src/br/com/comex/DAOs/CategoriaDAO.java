@@ -19,6 +19,11 @@ public class CategoriaDAO {
 	}
 		
 
+	public CategoriaDAO() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public void insereCategoria(Categoria categoria) throws SQLException {
 		String sql = "INSERT INTO comex.categoria (nome, status) VALUES (?, ?)";
 

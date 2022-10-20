@@ -6,7 +6,7 @@ public class PublicaWebService {
 
 	public static void main(String[] args) {
 
-		ComexWS service = new ComexWS();
+		ComexWS1 service = new ComexWS1();
 		String url = "http://localhost:8080/comexws";
 		
 		System.out.println("Executando conexão: " + url);
