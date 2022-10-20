@@ -2,35 +2,32 @@ package br.com.comex.modelo;
 
 public class Pedido {
 
-	private static int contador = 1;
+	
 	private int id;
 	private String data;
-	private Cliente cliente;
+	private int cliente_id;
 
-	public Pedido (int id, String data, Cliente cliente) {
+	public Pedido (int id, String data, int cliente_id) {
 		
 		this.id = id;
 		this.data = data;
-		this.cliente = cliente;
+		this.cliente_id = cliente_id;
 		
 	}
 	
 	
-		public Pedido (String data, Cliente cliente) {
+		public Pedido (String data, int cliente_id) {
 	
-			this.id = contador;
 			this.data = data;
-			this.cliente = cliente;
-			contador++;
+			this.cliente_id = cliente_id;
+			
 		}
 
 		public Pedido (int id) {
 			this.id = id;
 		}
-		public int setId() {
-			return this.id=id;
-		}
-		public int getId() {
+		
+			public int getId() {
 			return id;
 		}
 		
@@ -41,14 +38,20 @@ public class Pedido {
 			return data;
 		}
 		
-		public Cliente getCliente() {
-			return cliente;
+		public void setCliente_id(int cliente_id) {
+			this.cliente_id = cliente_id;
+		}
+		public int getCliente_id() {
+			return cliente_id;
 		}
 
 		public void setId(int id) {
 			this.id = id;
 			
 		}
+
+
+	
 
 	
 		

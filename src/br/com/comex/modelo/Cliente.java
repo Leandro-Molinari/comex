@@ -4,7 +4,7 @@ package br.com.comex.modelo;
 
 public class Cliente {
 	
-	private static int contador  = 1;
+	
 	private int id;
 	private String nome;
 	private String cpf;
@@ -68,7 +68,7 @@ public class Cliente {
 					throw new ComexException("Nome da Cidade bairro corretetamente");
 				}
 				
-				this.id = contador;
+				
 				this.nome = nome;
 				this.cpf = cpf;
 				this.telefone = telefone;
@@ -78,7 +78,7 @@ public class Cliente {
 				this.bairro = bairro;
 				this.cidade = cidade;
 				this.uf = uf;
-				contador ++;
+		
 			}
 	
 		
@@ -136,7 +136,7 @@ public class Cliente {
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.uf = uf;
-		contador ++;
+		
 	}
 	
 	public void validaestado(SiglaEstado uf) {
@@ -201,6 +201,47 @@ public class Cliente {
 	public void setNome(String nome) {
 		this.nome = nome;
 		
+	}
+
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+
+
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+
+
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
 	}
 
 

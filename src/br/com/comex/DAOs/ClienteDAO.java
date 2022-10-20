@@ -59,11 +59,11 @@ public class ClienteDAO {
 		return clientes;
 	}
 	
-	public void excluiCliente(Long id) throws SQLException {
+	public void excluiCliente(Cliente cliente) throws SQLException {
 		String sql = "DELETE FROM comex.cliente WHERE id = ?";
 		
 		try(PreparedStatement statement = conexao.prepareStatement(sql)){
-			statement.setLong(1, id);
+			statement.setInt(1, cliente.getId());
 			statement.execute();
 		}
 		
@@ -126,5 +126,14 @@ public class ClienteDAO {
 		cliente.setId(registro.getInt("id"));
 		return cliente;
 	}
+
+
+	public Cliente insereCliente() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
 
 }

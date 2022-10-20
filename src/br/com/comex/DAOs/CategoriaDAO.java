@@ -46,31 +46,32 @@ public class CategoriaDAO {
 		while (registros.next()) {
 			categorias.add(this.populaCategoria(registros));
 		}
-		
+		System.out.println(categorias);
 		registros.close();
 		comandoPreparado.close();
 		
 		return categorias;
 	}
 	
-	public void excluiCategoria(Long id) throws SQLException {
+	public void excluiCategoria(Categoria categoria) throws SQLException {
 		String sql = "DELETE FROM comex.categoria WHERE id = ?";
 		
 		try(PreparedStatement statement = conexao.prepareStatement(sql)){
-			statement.setLong(1, id);
+			statement.setLong(1, categoria.getId());
 			statement.execute();
 		}
 		
 	}
 	
 	public void alteraCategoria(Categoria categoria) throws SQLException {
-		String sql = "UPDATE comex.categoria SET nome = ?, status = ?";
+		String sql = "UPDATE comex.categoria SET nome = ?, status = ? WHERE id = ?";
 		
 		
 		try(PreparedStatement statement = conexao.prepareStatement(sql)){
 			
 			statement.setString(1, categoria.getNome());
 			statement.setString(2, categoria.getStatus().name());
+			statement.setInt(3, categoria.getId());
 			statement.execute();
 		
 		}

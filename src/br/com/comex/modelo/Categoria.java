@@ -1,21 +1,20 @@
 package br.com.comex.modelo;
 
-
-
 public class Categoria {
 	
 		
-		private static int contador = 1;
 		private int id;
 		private String nome;
 		private StatusCategoria status = StatusCategoria.ATIVA;
 		
+	public Categoria(int i) {
+			
+		}
+		
+		
 		public Categoria (int id, String nome, StatusCategoria status) {
 			
-			if (id != contador) {
-				throw new ComexException ("Id inválido ou duplicado! O PRÓXIMO Id DISPONÍVEL É '" + contador + "'");
-			}
-
+		
 			if (nome.length() <= 3) {
 				throw new ComexException ("Nome deve ter no minimo 4 caracteres");
 			}
@@ -27,27 +26,26 @@ public class Categoria {
 			 this.id = id;
 			this.nome = nome;
 			this.status = status;
-			contador ++; 
+			
 		}
 		
 		
 		public Categoria (String nome, StatusCategoria status)  {
 			
-			//if (id != contador) {
-			//	throw new IllegalArgumentException ("Id inválido ou duplicado");
-			//}
-
+			
 			if (nome.length() <= 3) {
 				throw new ComexException ("Nome deve ter no minimo 4 caracteres");
 			}
 			
-						
-			this.id = contador;
+			
 			this.nome = nome;
 			this.status = status;
-			contador ++; 
+			
 		}
 		
+	
+
+
 		public int getId() {
 			return id;
 		}
@@ -61,12 +59,21 @@ public class Categoria {
 			this.nome = nome;
 		}
 		
-		public StatusCategoria setStatus() {
-			return status;
-		}
 		
 		public StatusCategoria getStatus() {
 			return status;
 		}
+
+	
+		public void setStatus(StatusCategoria status) {
+			this.status = status;
+		}
+
+
+		@Override
+		public String toString() {
+			return "Categoria [id=" + id + ", nome=" + nome + ", status=" + status + "]" + System.lineSeparator();
+		}
+	
 		
 }
