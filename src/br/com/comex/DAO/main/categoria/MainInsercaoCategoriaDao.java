@@ -15,8 +15,8 @@ public class MainInsercaoCategoriaDao {
 		Connection connection = new ConnectionFactory().recuperaConexao();
 		CategoriaDAO categoriaDAO = new CategoriaDAO(connection);
 		Categoria categoria = new Categoria();
-		categoria.setNome("PAPELARIA");
-		categoria.setStatus(StatusCategoria.INATIVA);
+		categoria.setNome("JARDINAGEM");
+		categoria.setStatus(StatusCategoria.ATIVA);
 		categoriaDAO.insereCategoria(categoria);
 		
 	}

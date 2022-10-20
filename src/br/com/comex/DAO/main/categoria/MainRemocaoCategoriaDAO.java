@@ -13,7 +13,7 @@ public class MainRemocaoCategoriaDAO {
 
 		try(Connection connection= new ConnectionFactory().recuperaConexao()){
 		     CategoriaDAO categoriaDAO = new CategoriaDAO(connection);
-		     Categoria categoria = categoriaDAO.PegaIdCategoria(20);
+		     Categoria categoria = categoriaDAO.PegaIdCategoria(27);
 		     categoriaDAO.excluiCategoria(categoria);
 		}			
 		System.out.println("Dados alterados com sucesso, conexão fechada");
