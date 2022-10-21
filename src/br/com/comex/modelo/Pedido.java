@@ -1,7 +1,6 @@
 package br.com.comex.modelo;
 
 public class Pedido {
-
 	
 	private int id;
 	private String data;
@@ -15,7 +14,14 @@ public class Pedido {
 		
 	}
 	
+	    
 	
+		public Pedido() {
+		
+	}
+
+
+
 		public Pedido (String data, int cliente_id) {
 	
 			this.data = data;

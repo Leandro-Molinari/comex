@@ -34,7 +34,6 @@ public class CategoriaDAO {
 				result.next();
 		
 				categoria.setId(result.getInt(1));
-
 		}
 	}
 	
