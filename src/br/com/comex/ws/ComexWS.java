@@ -11,7 +11,9 @@ import javax.jws.WebResult;
 import javax.jws.WebService;
 
 import br.com.comex.DAOs.CategoriaDAO;
+import br.com.comex.DAOs.ClienteDAO;
 import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.Cliente;
 import br.com.comex.modelo.ConnectionFactory;
 
 @WebService
@@ -32,22 +34,26 @@ public class ComexWS {
 		@WebMethod(operationName = "adicionaCategoria")
 		public Categoria adicionarCategoria(Categoria categoria) throws SQLException {
 			String sql = "INSERT INTO comex.categoria (nome, status) VALUES (?, ?)";
-
 			String[] retornaColuna = { "id" };
 			
 			try(PreparedStatement statement = connection.prepareStatement(sql, retornaColuna)){
 					statement.setString(1, categoria.getNome());
 					statement.setString(2, categoria.getStatus().name());
-					
 					statement.execute();
-
 					ResultSet result = statement.getGeneratedKeys();
 					result.next();
-			
 					categoria.setId(result.getInt(1));
-					
 					return categoria;
 			}
+		}
+		
+		ClienteDAO clienteDao = new ClienteDAO(connection);
+		@WebMethod(operationName = "listagemClientes")
+		public List<Cliente> listarCliente() throws SQLException{
+		
+		List<Cliente> listarClientes = clienteDao.listaCliente(); 
+	
+		return listarClientes;
 		}
 		
 }
