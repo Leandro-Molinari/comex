@@ -24,15 +24,15 @@ public class ComexWS {
 		Connection connection = new ConnectionFactory().recuperaConexao();
 	
 		CategoriaDAO categoriaDao = new CategoriaDAO(connection);
-		@WebMethod(operationName = "listarCategorias")
+		@WebMethod(operationName = "listarCategorias_Alterado_conforme_tarefa_7")
 		public List<Categoria> getCategorias() throws SQLException{
 		
-		List<Categoria> listarCategorias = categoriaDao.listaCategoria(); 
+		List<Categoria> getCategorias = categoriaDao.listaCategoria(); 
 	
-		return listarCategorias;
+		return getCategorias;
 		}
 		
-		@WebMethod(operationName = "adicionaCategoria")
+		//@WebMethod(operationName = "adicionaCategoria")
 		public Categoria adicionarCategoria(Categoria categoria) throws SQLException {
 			String sql = "INSERT INTO comex.categoria (nome, status) VALUES (?, ?)";
 			String[] retornaColuna = { "id" };
@@ -49,7 +49,7 @@ public class ComexWS {
 		}
 		
 		ClienteDAO clienteDao = new ClienteDAO(connection);
-		@WebMethod(operationName = "listagemClientes")
+		//@WebMethod(operationName = "listagemClientes")
 		public List<Cliente> listarCliente() throws SQLException{
 		
 		List<Cliente> listarClientes = clienteDao.listaCliente(); 
@@ -57,7 +57,7 @@ public class ComexWS {
 		return listarClientes;
 		}
 		
-		@WebMethod(operationName = "insereClientes")
+		//@WebMethod(operationName = "insereClientes")
 		public Cliente adicionarCliente(Cliente cliente) throws SQLException {
 			String sql = "INSERT INTO comex.cliente (nome, cpf, telefone, rua, numero, complemento, bairro, cidade, uf) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			String[] retornaColuna = { "id" };

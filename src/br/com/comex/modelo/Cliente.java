@@ -1,10 +1,12 @@
 package br.com.comex.modelo;
 
+import javax.xml.bind.annotation.XmlType;
 
-
+@XmlType(propOrder = {"id", "nome","cpf","telefone","rua","numero","complemento","bairro","cidade","uf" })
 public class Cliente {
 	
 
+	
 	private int id;
 	private String nome;
 	private String cpf;
@@ -93,36 +95,6 @@ public class Cliente {
 		}
 		
 
-		if (nome.length() <= 5) {
-			new ComexException("Nome deve ter mais que 5 letras");
-		}
-		
-		if (cpf.length() < 11 || cpf.length() > 14) {
-			new ComexException("CPF inválido, deve ter entre 11 e 14 números");
-		}
-		
-		if(telefone != null) {
-		if(telefone.length() < 11 || telefone.length() > 16) {
-			new ComexException("Telefone inválido, deve ter entre 11 e 16 caracteres");
-		}
-		} 
-		
-		if(rua.length() <= 5) {
-			throw new ComexException("Nome da rua inválido, deve ter mais de 5 caracteres");
-		}
-		
-		if(numero.length() <= 1) {
-			throw new ComexException("Informar número correto (Minimo 2 números ou S/N");
-		}
-		
-		if(bairro.length() <= 1) {
-			throw new ComexException("Informar nome do bairro corretetamente");
-		}
-		
-		if(cidade.length() <= 1) {
-			throw new ComexException("Nome da Cidade bairro corretetamente");
-		}
-		
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
