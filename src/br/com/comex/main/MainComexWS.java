@@ -7,9 +7,13 @@ import br.com.comex.ws.ComexWS;
 public class MainComexWS {
 
 	public static void main(String[] args) {
-		String url = "http://http://localhost:8080/ComexWS";
+
+		ComexWS service = new ComexWS();
+		String url = "http://localhost:8080/comexws";
 		System.out.println("Projeto Comex");
-		Endpoint.publish(url, new ComexWS());
+		System.out.println("Executando conexão: " + url);
+		Endpoint.publish(url, service);
+		
 	}
 
 }
