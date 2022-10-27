@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.comex.modelo.Categoria;
-import br.com.comex.modelo.StatusCategoria;
+import br.com.comex.modelo.Categoria.StatusCategoria;;
 
 public class CategoriaDAO {
 	

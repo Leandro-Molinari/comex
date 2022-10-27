@@ -2,7 +2,7 @@ package br.com.comex.main;
 
 
 import br.com.comex.modelo.Categoria;
-import br.com.comex.modelo.StatusCategoria;
+import br.com.comex.modelo.Categoria.StatusCategoria;;
 
 public class MainCategoria {
 

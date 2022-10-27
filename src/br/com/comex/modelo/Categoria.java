@@ -8,7 +8,13 @@ public class Categoria {
 		
 		private int id;
 		private String nome;
-		private StatusCategoria status = StatusCategoria.ATIVA;
+		private StatusCategoria status;
+		
+		public enum StatusCategoria {
+			
+			ATIVA, INATIVA;
+
+		}
 		
 		public Categoria() {
 			super();
@@ -59,14 +65,15 @@ public class Categoria {
 			this.nome = nome;
 		}
 		
-		public StatusCategoria setStatus(StatusCategoria inativa) {
-			return status;
-		}
-		
 		public StatusCategoria getStatus() {
 			return status;
 		}
-
+		
+		public void setStatus(StatusCategoria status) {
+			this.status = status;
+		}
+		
+		
 		@Override
 		public String toString() {
 			return "Categoria [id=" + id + ", nome=" + nome + ", status=" + status + "]" + System.lineSeparator();

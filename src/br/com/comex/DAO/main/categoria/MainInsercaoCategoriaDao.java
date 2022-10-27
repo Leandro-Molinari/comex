@@ -5,8 +5,8 @@ import java.sql.SQLException;
 
 import br.com.comex.DAOs.CategoriaDAO;
 import br.com.comex.modelo.ConnectionFactory;
-import br.com.comex.modelo.StatusCategoria;
 import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.Categoria.StatusCategoria;
 
 public class MainInsercaoCategoriaDao {
 
