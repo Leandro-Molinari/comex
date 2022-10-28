@@ -1,0 +1,1 @@
+docker run -d -v jenkins-volume:/var --name jenkins -p 8081:8080 -p 5000:5000 jenkins/jenkins:lts-jdk

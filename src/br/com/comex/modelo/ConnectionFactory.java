@@ -12,9 +12,15 @@ public class ConnectionFactory {
 		
 		public ConnectionFactory() {
 			
+			String db = System.getenv("DATABASE_HOST");
+				
+			if (db == null || db.isEmpty()){
+				db = "0.0.0.0";
+			}
+			
 			try {
 				ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
-				comboPooledDataSource.setJdbcUrl("jdbc:oracle:thin:@localhost:1522:xe");
+				comboPooledDataSource.setJdbcUrl("jdbc:oracle:thin:@" + db + ":1522:xe");
 				comboPooledDataSource.setUser("System");
 				comboPooledDataSource.setPassword("admin");
 				
@@ -22,7 +28,7 @@ public class ConnectionFactory {
 				
 				this.dataSource = comboPooledDataSource;
 			} catch (Exception e) {
-				
+				throw new RuntimeException(e);
 			}
 			
 				
@@ -34,9 +40,10 @@ public class ConnectionFactory {
 				return this.dataSource.getConnection();
 			} catch (Exception e) {
 				
+				throw new RuntimeException(e);
 				
 			}
-			return null;
+			
 		
 		
 	}
